@@ -29,11 +29,6 @@ jobs:
           node-version: '12'
         
       - run: yarn install
-      - name: Linter action
-        id: linter
-        uses: AntonKornus/TypeScript-Linter@1.0.0
-        with:
-          folder: src
       - run: yarn test
       - run: yarn build
         
