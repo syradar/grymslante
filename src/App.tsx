@@ -49,11 +49,15 @@ function App() {
   const [current, setCurrent] = useState<number>(1);
   const [target, setTarget] = useState<number>(2);
   const [modifier, setModifier] = useState<number>(0);
+  const [diceResult, setDiceResult] = useState<number>(0);
 
   return (
     <div className="App">
       <header className="App-header">
-        {console.log(explodingD10(7, 3))}
+        <button onClick={() => setDiceResult(explodingD10(7, 3))} type="button">
+          Roll 1D10 (ED7-10) + 3
+        </button>
+        <h2>{diceResult}</h2>
         <h1>Current</h1>
         <div className="stepper">
           <button
