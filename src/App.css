@@ -81,7 +81,13 @@
   border-bottom-right-radius: 9999px;
 }
 
-.stepper span {
+.stepper input {
   min-width: 2ch;
   line-height: 1;
+  background-color: transparent;
+  border: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fefefe;
+  font-weight: bold;
 }

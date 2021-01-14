@@ -36,21 +36,35 @@ function App() {
             className="dec"
             type="button"
             onClick={() => {
-              if (current > 1 ) {
+              if (current > 1) {
                 setCurrent(current - 1);
+              } else {
+                setCurrent(1);
               }
             }}
           >
             –
           </button>
-          <span>{current}</span>
+          <input
+            type="text"
+            value={current}
+            onChange={(event) => {
+              const num = parseInt(event.target.value, 10) || 0;
+              console.log("num", num);
+              setCurrent(num);
+
+              if (num > 1) {
+                if (num >= target) setTarget(num + 1);
+              }
+            }}
+          />
           <button
             className="inc"
             type="button"
-            onClick={() =>{
-               setCurrent(current + 1);
-               if (current + 1 >= target) setTarget(target + 1);
-              }}
+            onClick={() => {
+              setCurrent(current + 1);
+              if (current + 1 >= target) setTarget(target + 1);
+            }}
           >
             +
           </button>
@@ -61,10 +75,10 @@ function App() {
             className="dec"
             type="button"
             onClick={() => {
-              if (target > 2 ) {
-                setTarget(target - 1)
+              if (target > 2) {
+                setTarget(target - 1);
                 if (target - 1 <= current) setCurrent(current - 1);
-              };
+              }
             }}
           >
             –
