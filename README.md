@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Grymslante ![CI](https://github.com/syradar/grymslante/workflows/CI/badge.svg)
+
+A companion tool for Trudvang RPG
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
