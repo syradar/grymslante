@@ -13,7 +13,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <Router>
+    <Router basename="/grymslante">
       <div className={`app ${darkMode ? 'dark' : 'light'}`}>
         <div tw="min-h-screen py-4 px-3 transition-colors light:bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
           <button
