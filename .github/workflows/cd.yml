@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CD
+name: CI/CD
 
 # Controls when the action will run. 
 on:
@@ -27,12 +27,26 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
-        
+      
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}  
+      
       - run: yarn install
+      
       - run: yarn build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+        run: |
+          git config --global user.name $user_name
+          git config --global user.email $user_email
+          git remote set-url origin https://${github_token}@github.com/${repository}
+          npm run deploy
+        env:
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          repository: ${{ github.repository }}
