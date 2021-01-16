@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/grymslante/static/css/main.13258683.chunk.css",
-    "main.js": "/grymslante/static/js/main.7b945f42.chunk.js",
-    "main.js.map": "/grymslante/static/js/main.7b945f42.chunk.js.map",
+    "main.js": "/grymslante/static/js/main.c7dcfcb1.chunk.js",
+    "main.js.map": "/grymslante/static/js/main.c7dcfcb1.chunk.js.map",
     "runtime-main.js": "/grymslante/static/js/runtime-main.478c6876.js",
     "runtime-main.js.map": "/grymslante/static/js/runtime-main.478c6876.js.map",
     "static/js/2.5b3d9539.chunk.js": "/grymslante/static/js/2.5b3d9539.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.478c6876.js",
     "static/js/2.5b3d9539.chunk.js",
     "static/css/main.13258683.chunk.css",
-    "static/js/main.7b945f42.chunk.js"
+    "static/js/main.c7dcfcb1.chunk.js"
   ]
 }
