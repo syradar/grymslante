@@ -23,7 +23,7 @@ function App() {
             {darkMode ? 'Back to the Light' : 'Embrace the Darkness'}
           </button>
           <h1 tw="text-2xl mb-3 font-bold text-red-700 dark:text-red-400 ">
-            Grymslante
+            Grymslante (test ci/cd)
           </h1>
 
           <Navbar />
