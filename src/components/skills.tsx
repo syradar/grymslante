@@ -1,3 +1,7 @@
+/** @jsxImportSource @emotion/react */
+import tw, { css } from "twin.macro";
+import { card } from "../styles";
+
 import { useState } from "react";
 
 const atLeast = (lowest: number) => (value: number) =>
@@ -26,8 +30,9 @@ export const Skills = () => {
   const [modifier, setModifier] = useState<number>(0);
 
   return (
-    <>
-      <h1>Current</h1>
+    <div css={card}>
+      <h2>Skill calculator</h2>
+      <p>Current</p>
       <div className="stepper">
         <button
           className="dec"
@@ -66,7 +71,7 @@ export const Skills = () => {
           +
         </button>
       </div>
-      <h1>Target</h1>
+      <p>Target</p>
       <div className="stepper">
         <button
           className="dec"
@@ -89,7 +94,7 @@ export const Skills = () => {
           +
         </button>
       </div>
-      <h1>Modifier</h1>
+      <p>Modifier</p>
       <div className="stepper">
         <button
           className="dec"
@@ -107,7 +112,7 @@ export const Skills = () => {
           +
         </button>
       </div>
-      <h1>Cost: {getSkillCost(current, target, modifier)}</h1>
-    </>
+      <p>Cost: {getSkillCost(current, target, modifier)}</p>
+    </div>
   );
 };
