@@ -31,10 +31,8 @@ jobs:
       - run: yarn install
       - run: yarn build
 
-      - name: Authorizing Github action
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-        uses: oleksiyrudenko/gha-git-credentials@v1
-
-      - name: Doploy to GitHub Pages
-        uses: amitsingh-007/deploy-to-github-pages@v1.1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
