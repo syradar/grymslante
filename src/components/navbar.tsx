@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import tw from "twin.macro";
-import React from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import tw from 'twin.macro';
+import React from 'react';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <nav tw="mb-5 dark:bg-blue-400 light:bg-red-400">

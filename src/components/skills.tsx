@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import tw, { css } from "twin.macro";
-import { card } from "../styles";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import tw, { css } from 'twin.macro';
+import { card } from '../styles';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 const atLeast = (lowest: number) => (value: number) =>
   value < lowest ? lowest : value;
@@ -52,7 +53,7 @@ export const Skills = () => {
           value={current}
           onChange={(event) => {
             const num = parseInt(event.target.value, 10) || 0;
-            console.log("num", num);
+            console.log('num', num);
             setCurrent(num);
 
             if (num > 1) {
