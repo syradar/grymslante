@@ -4,6 +4,7 @@ import tw from 'twin.macro';
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
+import Footer from './components/footer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Skills } from './pages/skills';
 import { Dice } from './pages/dice';
@@ -15,30 +16,33 @@ function App() {
   return (
     <Router basename="/grymslante">
       <div className={`app ${darkMode ? 'dark' : 'light'}`}>
-        <div tw="min-h-screen py-4 px-3 transition-colors light:bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
-          <button
-            tw="py-2 px-3 border mb-3"
-            onClick={() => setDarkMode(!darkMode)}
-          >
-            {darkMode ? 'Back to the Light' : 'Embrace the Darkness'}
-          </button>
-          <h1 tw="text-2xl mb-3 font-bold text-red-700 dark:text-red-400 ">
-            Grymslante
-          </h1>
+        <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
+          <div tw="py-4 px-3 flex-auto flex-shrink-0">
+            <button
+              tw="py-2 px-3 border mb-3"
+              onClick={() => setDarkMode(!darkMode)}
+            >
+              {darkMode ? 'Back to the Light' : 'Embrace the Darkness'}
+            </button>
+            <h1 tw="text-2xl mb-3 font-bold text-red-700 dark:text-red-400 ">
+              Grymslante
+            </h1>
 
-          <Navbar />
+            <Navbar />
 
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/skills">
-              <Skills />
-            </Route>
-            <Route path="/dice">
-              <Dice />
-            </Route>
-          </Switch>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/skills">
+                <Skills />
+              </Route>
+              <Route path="/dice">
+                <Dice />
+              </Route>
+            </Switch>
+          </div>
+          <Footer></Footer>
         </div>
       </div>
     </Router>
