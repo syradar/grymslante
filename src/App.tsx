@@ -5,9 +5,9 @@ import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Skills } from './components/skills';
-import { Dice } from './components/dice';
-import { Home } from './components/home';
+import { Skills } from './pages/skills';
+import { Dice } from './pages/dice';
+import { Home } from './pages/home';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
