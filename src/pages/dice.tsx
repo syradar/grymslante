@@ -6,10 +6,16 @@ import { useState } from 'react';
 import { SegmentedControl } from '../components/segmented-control';
 import { Stepper } from '../components/stepper';
 import { buttonPrimary, card } from '../styles';
-import { d10, d20, d5 } from '../utils/dice-roller';
+import {
+  d10,
+  d20,
+  d5,
+  explodingD10,
+  validExplodeRange,
+} from '../utils/dice-roller';
 
 export const Dice = () => {
-  const segments = ['d5', 'd10', 'd20'];
+  const segments = ['d5', 'd10', 'd10 OR', 'd20'];
   const [active, setActive] = useState(0);
 
   const handleSegmentClick = (index: number) => {
@@ -23,6 +29,12 @@ export const Dice = () => {
     setDiceResult(undefined);
   };
 
+  const [explodeOn, setExplodeOn] = useState(10);
+  const handleExplodeOn = (value: number) => {
+    setExplodeOn(value);
+    setDiceResult(undefined);
+  };
+
   const [diceResult, setDiceResult] = useState<number>();
 
   const getDieType = (die: string) => {
@@ -31,6 +43,8 @@ export const Dice = () => {
         return d5;
       case 'd10':
         return d10;
+      case 'd10 OR':
+        return explodingD10;
       case 'd20':
       default:
         return d20;
@@ -39,7 +53,10 @@ export const Dice = () => {
 
   const rollDie = () => {
     const dieFn = getDieType(segments[active]);
-    const result = dieFn() + modifier;
+    const result =
+      segments[active] === 'd10 OR' && validExplodeRange(explodeOn)
+        ? dieFn(explodeOn) + modifier
+        : dieFn() + modifier;
     setDiceResult(() => result);
   };
 
@@ -54,7 +71,7 @@ export const Dice = () => {
             onSegmentClick={(index) => handleSegmentClick(index)}
           ></SegmentedControl>
         </div>
-        <div tw="flex flex-col justify-center mb-5">
+        <div tw="grid grid-flow-col mb-5">
           <Stepper
             id={'diceModifier'}
             label={'Modifier'}
@@ -63,6 +80,16 @@ export const Dice = () => {
             value={modifier}
             onChange={(value) => handleModifierChange(value)}
           ></Stepper>
+          {segments[active] === 'd10 OR' && (
+            <Stepper
+              id={'explodingModifier'}
+              label={'Explode on'}
+              min={2}
+              max={10}
+              value={explodeOn}
+              onChange={(value) => handleExplodeOn(value)}
+            ></Stepper>
+          )}
         </div>
         <button tw="mb-5" css={buttonPrimary} onClick={rollDie}>
           Roll
@@ -71,10 +98,14 @@ export const Dice = () => {
           <>
             <div tw="text-9xl text-center">{diceResult}</div>
             <div tw="text-center">
-              1{segments[active]}{' '}
+              1{segments[active]}
+              {segments[active] === 'd10 OR' && (
+                <span> ({explodeOn === 10 ? `10` : `${explodeOn}–10`})</span>
+              )}
               {modifier !== 0 && (
                 <span>
-                  {modifier > 0 ? '+' : ''} {modifier}
+                  {modifier > 0 ? ' +' : ' '}
+                  {modifier}
                 </span>
               )}
             </div>

@@ -8,6 +8,7 @@ export const d10 = rollDice(1, 10);
 export const d20 = rollDice(1, 20);
 
 export type ExplodingRange = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+export const validExplodeRange = (value: number): value is ExplodingRange => value <= 10 && value >= 2;
 
 const exploding = (ed: ExplodingRange = 10, sum: number = 0): number => {
   const result = d10();
@@ -18,5 +19,5 @@ const exploding = (ed: ExplodingRange = 10, sum: number = 0): number => {
   return exploding(ed, newSum);
 };
 
-export const explodingD10 = (ed: ExplodingRange = 10, modifier: number = 0) =>
-  exploding(ed) + modifier;
+export const explodingD10 = (ed: ExplodingRange = 10) =>
+  exploding(ed);
