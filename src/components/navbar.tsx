@@ -22,7 +22,7 @@ const Navbar = () => (
           to="/skills"
         >
           <span tw="">Skills</span>
-          <span tw="flex items-center ml-1 p-0.5 leading-none dark:bg-gray-600 text-xs font-bold rounded text-gray-400">
+          <span tw="flex items-center ml-1 p-0.5 bg-gray-300 dark:bg-gray-600 text-xs leading-none font-bold rounded text-gray-400">
             DODT
           </span>
         </Link>
