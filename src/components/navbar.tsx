@@ -4,22 +4,44 @@ import tw from 'twin.macro';
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { card } from '../styles';
 
 const Navbar = () => (
-  <nav tw="mb-5" css={card}>
+  <nav tw="mb-5 bg-gray-200 dark:bg-gray-700">
     <ul tw="grid grid-flow-col gap-x-3">
-      <li tw="hover:text-blue-400">
-        <Link to="/">Home</Link>
+      <li tw="">
+        <Link
+          css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
+          to="/"
+        >
+          Home
+        </Link>
       </li>
-      <li tw="hover:text-blue-400">
-        <Link to="/skills">Skills</Link>
+      <li tw="">
+        <Link
+          css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
+          to="/skills"
+        >
+          <span tw="">Skills</span>
+          <span tw="flex items-center ml-1 p-0.5 bg-gray-300 dark:bg-gray-600 text-xs leading-none font-bold rounded text-gray-400">
+            DODT
+          </span>
+        </Link>
       </li>
-      <li tw="hover:text-blue-400">
-        <Link to="/dice">Dice</Link>
+      <li tw="">
+        <Link
+          css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
+          to="/dice"
+        >
+          Dice
+        </Link>
       </li>
-      <li tw="hover:text-blue-400">
-        <Link to="/names">Names</Link>
+      <li tw="">
+        <Link
+          css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
+          to="/names"
+        >
+          Names
+        </Link>
       </li>
     </ul>
   </nav>

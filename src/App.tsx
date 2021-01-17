@@ -17,30 +17,31 @@ function App() {
     <Router basename="/grymslante">
       <div className={`app ${darkMode ? 'dark' : 'light'}`}>
         <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
-          <div tw="py-4 px-3 flex-auto flex-shrink-0">
+          <div tw="py-4 flex-auto flex-shrink-0">
             <button
-              tw="py-2 px-3 border mb-3"
+              tw="mx-3 py-2 px-3 border mb-3"
               onClick={() => setDarkMode(!darkMode)}
             >
               {darkMode ? 'Back to the Light' : 'Embrace the Darkness'}
             </button>
-            <h1 tw="text-2xl mb-3 font-bold text-red-700 dark:text-red-400 ">
+            <h1 tw="px-3 text-2xl mb-3 font-bold text-red-700 dark:text-red-400 ">
               Grymslante
             </h1>
 
             <Navbar />
-
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/skills">
-                <Skills />
-              </Route>
-              <Route path="/dice">
-                <Dice />
-              </Route>
-            </Switch>
+            <div tw="px-3">
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/skills">
+                  <Skills />
+                </Route>
+                <Route path="/dice">
+                  <Dice />
+                </Route>
+              </Switch>
+            </div>
           </div>
           <Footer></Footer>
         </div>
