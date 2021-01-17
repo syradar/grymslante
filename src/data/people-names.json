@@ -20,39 +20,42 @@
       "Mor",
       "Mord"
     ],
-    "male": [
-      "ard",
-      "bard",
-      "jar",
-      "gjar",
-      "ed",
-      "hed",
-      "finn",
-      "fraidh",
-      "han",
-      "marr",
-      "red",
-      "rik",
-      "win",
-      "winn"
-    ],
-    "female": [
-      "non",
-      "annon",
-      "de",
-      "elde",
-      "eid",
-      "heid",
-      "trude",
-      "itrude",
-      "frid",
-      "lynn",
-      "na",
-      "nhja",
-      "rynn",
-      "wa",
-      "wen"
-    ]
+    "suffix": {
+      "male": [
+        "ard",
+        "bard",
+        "jar",
+        "gjar",
+        "ed",
+        "hed",
+        "finn",
+        "fraidh",
+        "han",
+        "marr",
+        "red",
+        "rik",
+        "win",
+        "winn"
+      ],
+      "female": [
+        "non",
+        "annon",
+        "de",
+        "elde",
+        "eid",
+        "heid",
+        "trude",
+        "itrude",
+        "frid",
+        "lynn",
+        "na",
+        "nhja",
+        "rynn",
+        "wa",
+        "wen"
+      ],
+      "both": []
+    }
   },
   {
     "people": "stormlander",
@@ -68,30 +71,33 @@
       "vig",
       "vret"
     ],
-    "male": [
-      "biorn",
-      "geir",
-      "grim",
-      "galt",
-      "jald",
-      "orm",
-      "ulf",
-      "ur",
-      "vald",
-      "varr"
-    ],
-    "female": [
-      "a",
-      "dis",
-      "dott",
-      "gerd",
-      "hild",
-      "umbla",
-      "unn",
-      "veig",
-      "vida",
-      "vigg"
-    ]
+    "suffix": {
+      "male": [
+        "biorn",
+        "geir",
+        "grim",
+        "galt",
+        "jald",
+        "orm",
+        "ulf",
+        "ur",
+        "vald",
+        "varr"
+      ],
+      "female": [
+        "a",
+        "dis",
+        "dott",
+        "gerd",
+        "hild",
+        "umbla",
+        "unn",
+        "veig",
+        "vida",
+        "vigg"
+      ],
+      "both": []
+    }
   },
   {
     "people": "virann",
@@ -155,42 +161,45 @@
       "Tron",
       "Troni"
     ],
-    "male": [
-      "bad",
-      "gar",
-      "gist",
-      "kar",
-      "kind",
-      "kull",
-      "pis",
-      "red",
-      "rik",
-      "till",
-      "thill",
-      "walan",
-      "vard",
-      "wig",
-      "vik"
-    ],
-    "female": [
-      "th",
-      "dith",
-      "fing",
-      "gond",
-      "hed",
-      "hedd",
-      "kild",
-      "len",
-      "mynt",
-      "mynta",
-      "nell",
-      "sta",
-      "stai",
-      "strid",
-      "thne",
-      "tilde",
-      "winda"
-    ]
+    "suffix": {
+      "male": [
+        "bad",
+        "gar",
+        "gist",
+        "kar",
+        "kind",
+        "kull",
+        "pis",
+        "red",
+        "rik",
+        "till",
+        "thill",
+        "walan",
+        "vard",
+        "wig",
+        "vik"
+      ],
+      "female": [
+        "th",
+        "dith",
+        "fing",
+        "gond",
+        "hed",
+        "hedd",
+        "kild",
+        "len",
+        "mynt",
+        "mynta",
+        "nell",
+        "sta",
+        "stai",
+        "strid",
+        "thne",
+        "tilde",
+        "winda"
+      ],
+      "both": []
+    }
   },
   {
     "people": "elf",
@@ -213,34 +222,37 @@
       "Val",
       "Vali"
     ],
-    "male": [
-      "hang",
-      "ehang",
-      "iaho",
-      "piaho",
-      "akka",
-      "ingas",
-      "jias",
-      "lainen",
-      "mojna",
-      "pihi",
-      "taja",
-      "ua"
-    ],
-    "female": [
-      "ala",
-      "pala",
-      "atta",
-      "hiska",
-      "ika",
-      "iulu",
-      "iullu",
-      "kosva",
-      "lajna",
-      "likki",
-      "olvi",
-      "sinka"
-    ]
+    "suffix": {
+      "male": [
+        "hang",
+        "ehang",
+        "iaho",
+        "piaho",
+        "akka",
+        "ingas",
+        "jias",
+        "lainen",
+        "mojna",
+        "pihi",
+        "taja",
+        "ua"
+      ],
+      "female": [
+        "ala",
+        "pala",
+        "atta",
+        "hiska",
+        "ika",
+        "iulu",
+        "iullu",
+        "kosva",
+        "lajna",
+        "likki",
+        "olvi",
+        "sinka"
+      ],
+      "both": []
+    }
   },
   {
     "people": "dwarf",
@@ -260,22 +272,26 @@
       "Tor",
       "Zvor"
     ],
-    "male": [
-      "olgd",
-      "dolga",
-      "ka",
-      "kka",
-      "ust",
-      "rust",
-      "drank",
-      "gel",
-      "linkk",
-      "logi",
-      "rovv",
-      "van",
-      "var",
-      "zink"
-    ]
+    "suffix": {
+      "male": [
+        "olgd",
+        "dolga",
+        "ka",
+        "kka",
+        "ust",
+        "rust",
+        "drank",
+        "gel",
+        "linkk",
+        "logi",
+        "rovv",
+        "van",
+        "var",
+        "zink"
+      ],
+      "female": [],
+      "both": []
+    }
   },
   {
     "people": "troll",
@@ -306,29 +322,33 @@
       "lill",
       "knott"
     ],
-    "any": [
-      "lork",
-      "lorsk",
-      "lus",
-      "mo",
-      "must",
-      "ogg",
-      "p�ls",
-      "ryt",
-      "sno",
-      "snor",
-      "snus",
-      "stink",
-      "sto",
-      "stor",
-      "tande",
-      "tide",
-      "tov",
-      "urg",
-      "vis",
-      "yge",
-      "ygel",
-      "yt"
-    ]
+    "suffix": {
+      "male": [],
+      "female": [],
+      "both": [
+        "lork",
+        "lorsk",
+        "lus",
+        "mo",
+        "must",
+        "ogg",
+        "p�ls",
+        "ryt",
+        "sno",
+        "snor",
+        "snus",
+        "stink",
+        "sto",
+        "stor",
+        "tande",
+        "tide",
+        "tov",
+        "urg",
+        "vis",
+        "yge",
+        "ygel",
+        "yt"
+      ]
+    }
   }
 ]

@@ -1,4 +1,4 @@
-const rollDice = (min: number, max: number) => () =>
+export const rollDice = (min: number, max: number) => () =>
   min + Math.floor(Math.random() * (max - min + 1));
 
 export const d2 = rollDice(1, 2);

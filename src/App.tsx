@@ -32,7 +32,7 @@ function App() {
             </h1>
 
             <Navbar />
-            <div tw="px-3">
+            <div tw="px-3 container mx-auto">
               <Switch>
                 <Route exact path="/">
                   <Home />

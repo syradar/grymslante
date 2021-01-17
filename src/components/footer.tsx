@@ -12,7 +12,8 @@ const Footer = () => (
       GitHub
     </a>
     <div tw="text-right">
-      Created with ❤️ by David Malmström &copy; {new Date().getFullYear()}
+      Created with <span tw="mr-1.5">❤️</span> by David Malmström &copy;{' '}
+      {new Date().getFullYear()}
     </div>
   </footer>
 );

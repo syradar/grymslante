@@ -73,7 +73,7 @@ export const Skills = () => {
         </div>
 
         <Stepper
-          twProps={tw`mb-4`}
+          twProps={tw`mb-12`}
           id={'target'}
           label={'New Skill Value'}
           min={2}
