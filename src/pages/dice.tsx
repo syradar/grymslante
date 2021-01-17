@@ -68,7 +68,6 @@ export const Dice = () => {
         <div tw="mb-3">
           <SegmentedControl
             segments={segments}
-            // segments={['d5', 'd10']}
             selectedIndex={active}
             onSegmentClick={(index) => handleSegmentClick(index)}
           ></SegmentedControl>
@@ -93,18 +92,20 @@ export const Dice = () => {
             ></Stepper>
           )}
         </div>
-        <button tw="mb-5" css={buttonPrimary} onClick={rollDie}>
-          Roll 1{segments[active]}
-          {segments[active] === 'd10 OR' && (
-            <span> ({explodeOn === 10 ? `10` : `${explodeOn}–10`})</span>
-          )}
-          {modifier !== 0 && (
-            <span>
-              {modifier > 0 ? ' +' : ' '}
-              {modifier}
-            </span>
-          )}
-        </button>
+        <div tw="flex justify-center mb-12">
+          <button tw="" css={buttonPrimary} onClick={rollDie}>
+            Roll 1{segments[active]}
+            {segments[active] === 'd10 OR' && (
+              <span> ({explodeOn === 10 ? `10` : `${explodeOn}–10`})</span>
+            )}
+            {modifier !== 0 && (
+              <span>
+                {modifier > 0 ? ' +' : ' '}
+                {modifier}
+              </span>
+            )}
+          </button>
+        </div>
         {diceResult && (
           <>
             <div tw="text-9xl text-center">{diceResult}</div>

@@ -6,25 +6,33 @@ export interface SegmentedControlProps {
   segments: string[];
   onSegmentClick: (index: number) => void;
   selectedIndex: number;
+  vertical?: boolean;
 }
 
 export function SegmentedControl({
   segments,
   onSegmentClick,
   selectedIndex,
+  vertical = false,
 }: SegmentedControlProps) {
   return (
     <div tw="p-1 bg-gray-300 dark:bg-gray-600 rounded-lg shadow-inner ">
       <div
-        tw="relative grid gap-x-2"
-        css={{
-          gridTemplateColumns: `repeat(${segments.length}, minmax(0, 1fr))`,
-        }}
+        tw="relative grid gap-2"
+        css={[
+          {
+            gridTemplateColumns: `repeat(${segments.length}, minmax(0, 1fr))`,
+          },
+          vertical && {
+            gridTemplateColumns: '1fr',
+            gridTemplateRows: `repeat(${segments.length}, minmax(0, 1fr))`,
+          },
+        ]}
       >
         {segments.map((s, index) => (
           <button
             key={index}
-            tw="px-2 py-1 text-sm z-10 rounded-lg relative after:bg-gray-400 dark:after:bg-gray-500"
+            tw="px-2 py-1 text-sm z-10 rounded-lg relative after:bg-gray-400 after:dark:bg-gray-500"
             css={[
               {
                 outline: 'none !important',
@@ -32,24 +40,40 @@ export function SegmentedControl({
                   boxShadow: '0 0 4px 0 rgba(96, 165, 250, 1.1)',
                 },
               },
-              index !== segments.length - 1 && {
-                ':after': {
-                  content: '""',
-                  display: 'block',
-                  position: 'absolute',
-                  right: '-0.25rem',
-                  width: '0.01rem',
-                  height: '1.5rem',
-                  top: '50%',
-                  opacity: `${
-                    index === selectedIndex || index === selectedIndex - 1
-                      ? 0
-                      : 1
-                  }`,
-                  transition: 'opacity 150ms ease-in-out',
-                  transform: 'translateY(-50%)',
-                },
-              },
+              css`
+                &:after {
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  transition: all 300ms ease-in-out;
+                  opacity: ${index === selectedIndex ||
+                  index === selectedIndex - 1
+                    ? 0
+                    : 1};
+                }
+              `,
+              index !== segments.length - 1 &&
+                !vertical &&
+                css`
+                  &:after {
+                    right: -0.25rem;
+                    width: 1px;
+                    height: 1.5rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                  }
+                `,
+              index !== segments.length - 1 &&
+                vertical &&
+                css`
+                  &:after {
+                    left: 5%;
+                    width: 90%;
+                    height: 1px;
+                    bottom: -0.25rem;
+                    transform: translateY(-50%);
+                  }
+                `,
             ]}
             onClick={() => onSegmentClick(index)}
           >
@@ -59,12 +83,23 @@ export function SegmentedControl({
         <div
           tw="h-full z-0 absolute transition-transform shadow-md rounded-lg bg-white dark:bg-gray-500"
           style={{
-            width: `calc( (100% - ((${segments.length - 1} ) * 0.5rem)) / ${
-              segments.length
-            })`,
-            transform: `translateX(calc(${selectedIndex * 100}% + ${
-              selectedIndex * 0.5
-            }rem))`,
+            height: `${vertical ? `1.75rem` : ``}`,
+            width: `${
+              vertical
+                ? '100%'
+                : `calc( (100% - ((${segments.length - 1} ) * 0.5rem)) / ${
+                    segments.length
+                  })`
+            }`,
+            transform: `${
+              vertical
+                ? `translateY(calc(${selectedIndex * 100}% + ${
+                    selectedIndex * 0.5
+                  }rem))`
+                : `translateX(calc(${selectedIndex * 100}% + ${
+                    selectedIndex * 0.5
+                  }rem))`
+            }`,
           }}
         ></div>
       </div>

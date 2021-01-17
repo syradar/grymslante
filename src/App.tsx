@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Skills } from './pages/skills';
 import { Dice } from './pages/dice';
 import { Home } from './pages/home';
+import { Names } from './pages/names';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -31,7 +32,7 @@ function App() {
             </h1>
 
             <Navbar />
-            <div tw="px-3">
+            <div tw="px-3 container mx-auto">
               <Switch>
                 <Route exact path="/">
                   <Home />
@@ -41,6 +42,9 @@ function App() {
                 </Route>
                 <Route path="/dice">
                   <Dice />
+                </Route>
+                <Route path="/names">
+                  <Names />
                 </Route>
               </Switch>
             </div>
