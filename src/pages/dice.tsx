@@ -42,15 +42,15 @@ export const Dice = () => {
 
   return (
     <>
-      <div tw="mb-3">
-        <SegmentedControl
-          segments={segments}
-          // segments={['d5', 'd10']}
-          selectedIndex={active}
-          onSegmentClick={(index) => handleSegmentClick(index)}
-        ></SegmentedControl>
-      </div>
       <div tw="flex flex-col justify-center" css={card}>
+        <div tw="mb-3">
+          <SegmentedControl
+            segments={segments}
+            // segments={['d5', 'd10']}
+            selectedIndex={active}
+            onSegmentClick={(index) => handleSegmentClick(index)}
+          ></SegmentedControl>
+        </div>
         <div tw="flex flex-col justify-center mb-5">
           <Stepper
             id={'diceModifier'}

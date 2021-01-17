@@ -14,7 +14,7 @@ export function SegmentedControl({
   selectedIndex,
 }: SegmentedControlProps) {
   return (
-    <div tw="p-1 bg-gray-300 dark:bg-gray-700 rounded-xl shadow-inner ">
+    <div tw="p-1 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-inner ">
       <div
         tw="relative grid gap-x-2"
         css={{
