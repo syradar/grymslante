@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import tw from 'twin.macro';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
@@ -13,6 +13,10 @@ import { Names } from './pages/names';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+
+  useEffect(() => {
+    document.title = 'Grymslante';
+  }, []);
 
   return (
     <Router basename="/grymslante">
