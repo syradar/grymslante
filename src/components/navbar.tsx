@@ -4,7 +4,6 @@ import tw from 'twin.macro';
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { card } from '../styles';
 
 const Navbar = () => (
   <nav tw="mb-5 bg-gray-200 dark:bg-gray-700">
