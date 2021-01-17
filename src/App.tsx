@@ -17,14 +17,16 @@ function App() {
     <Router basename="/grymslante">
       <div className={`app ${darkMode ? 'dark' : 'light'}`}>
         <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
-          <div tw="py-4 flex-auto flex-shrink-0">
-            <button
-              tw="mx-3 py-2 px-3 border mb-3"
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              {darkMode ? 'Back to the Light' : 'Embrace the Darkness'}
-            </button>
-            <h1 tw="px-3 text-2xl mb-3 font-bold text-red-700 dark:text-red-400 ">
+          <div tw="pb-4 flex-auto flex-shrink-0">
+            <div tw="p-1 px-3 mb-3 bg-gray-100 dark:bg-gray-800 flex justify-end">
+              <button
+                tw="py-1 px-2 rounded bg-gray-200 dark:bg-gray-700 text-xs"
+                onClick={() => setDarkMode(!darkMode)}
+              >
+                {darkMode ? 'Back to the Light' : 'Embrace the Darkness'}
+              </button>
+            </div>
+            <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
               Grymslante
             </h1>
 
