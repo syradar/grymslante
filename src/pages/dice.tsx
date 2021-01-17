@@ -68,7 +68,6 @@ export const Dice = () => {
         <div tw="mb-3">
           <SegmentedControl
             segments={segments}
-            // segments={['d5', 'd10']}
             selectedIndex={active}
             onSegmentClick={(index) => handleSegmentClick(index)}
           ></SegmentedControl>
