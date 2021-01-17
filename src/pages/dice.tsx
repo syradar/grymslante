@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useState } from 'react';
 import tw, { css } from 'twin.macro';
+import { useState } from 'react';
 
 import { SegmentedControl } from '../components/segmented-control';
 import { Stepper } from '../components/stepper';
 import { buttonPrimary, card } from '../styles';
-import { d10, d20, d5, explodingD10 } from '../utils/dice-roller';
+import { d10, d20, d5 } from '../utils/dice-roller';
 
 export const Dice = () => {
   const segments = ['d5', 'd10', 'd20'];
