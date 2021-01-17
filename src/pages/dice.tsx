@@ -92,23 +92,20 @@ export const Dice = () => {
           )}
         </div>
         <button tw="mb-5" css={buttonPrimary} onClick={rollDie}>
-          Roll
+          Roll 1{segments[active]}
+          {segments[active] === 'd10 OR' && (
+            <span> ({explodeOn === 10 ? `10` : `${explodeOn}–10`})</span>
+          )}
+          {modifier !== 0 && (
+            <span>
+              {modifier > 0 ? ' +' : ' '}
+              {modifier}
+            </span>
+          )}
         </button>
         {diceResult && (
           <>
             <div tw="text-9xl text-center">{diceResult}</div>
-            <div tw="text-center">
-              1{segments[active]}
-              {segments[active] === 'd10 OR' && (
-                <span> ({explodeOn === 10 ? `10` : `${explodeOn}–10`})</span>
-              )}
-              {modifier !== 0 && (
-                <span>
-                  {modifier > 0 ? ' +' : ' '}
-                  {modifier}
-                </span>
-              )}
-            </div>
           </>
         )}
       </div>
