@@ -1,7 +1,5 @@
 # Grymslante ![CI](https://github.com/syradar/grymslante/workflows/CI/badge.svg)
 
-A companion tool for Trudvang RPG
-
 ## Features
 
 - Skill calculator for Drakar och Demoner Trudvang
