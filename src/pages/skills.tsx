@@ -4,6 +4,8 @@ import tw, { css } from 'twin.macro';
 import { card } from '../styles';
 
 import { useState } from 'react';
+import { Stepper } from '../components/stepper';
+import { Heading } from '../components/heading';
 
 const atLeast = (lowest: number) => (value: number) =>
   value < lowest ? lowest : value;
@@ -30,90 +32,61 @@ export const Skills = () => {
   const [target, setTarget] = useState<number>(2);
   const [modifier, setModifier] = useState<number>(0);
 
-  return (
-    <div css={card}>
-      <h2>Skill calculator</h2>
-      <p>Current</p>
-      <div className="stepper">
-        <button
-          className="dec"
-          type="button"
-          onClick={() => {
-            if (current > 1) {
-              setCurrent(current - 1);
-            } else {
-              setCurrent(1);
-            }
-          }}
-        >
-          –
-        </button>
-        <input
-          type="text"
-          value={current}
-          onChange={(event) => {
-            const num = parseInt(event.target.value, 10) || 0;
-            console.log('num', num);
-            setCurrent(num);
+  const handleCurrentChange = (newCurrent: number) => {
+    setCurrent(newCurrent);
+    if (newCurrent >= target) {
+      setTarget(newCurrent + 1);
+    }
+  };
 
-            if (num > 1) {
-              if (num >= target) setTarget(num + 1);
-            }
-          }}
-        />
-        <button
-          className="inc"
-          type="button"
-          onClick={() => {
-            setCurrent(current + 1);
-            if (current + 1 >= target) setTarget(target + 1);
-          }}
-        >
-          +
-        </button>
+  const handleTargetChange = (newTarget: number) => {
+    setTarget(newTarget);
+    if (newTarget <= current) {
+      setCurrent(newTarget - 1);
+    }
+  };
+
+  return (
+    <>
+      <Heading>Skill Calculator</Heading>
+      <div css={card}>
+        <div tw="grid grid-flow-col">
+          <Stepper
+            twProps={tw`mb-4`}
+            id={'current'}
+            label={'Old Skill Value'}
+            min={1}
+            max={20}
+            value={current}
+            onChange={(value) => handleCurrentChange(value)}
+          ></Stepper>
+
+          <Stepper
+            twProps={tw`mb-4`}
+            id={'modifier'}
+            label={'Attribute Modifier'}
+            min={-4}
+            max={4}
+            value={modifier}
+            onChange={(value) => setModifier(value)}
+          ></Stepper>
+        </div>
+
+        <Stepper
+          twProps={tw`mb-4`}
+          id={'target'}
+          label={'New Skill Value'}
+          min={2}
+          max={20}
+          value={target}
+          onChange={(value) => handleTargetChange(value)}
+        ></Stepper>
+
+        <div tw="text-center">Cost</div>
+        <div tw="text-9xl text-center">
+          {getSkillCost(current, target, modifier)}
+        </div>
       </div>
-      <p>Target</p>
-      <div className="stepper">
-        <button
-          className="dec"
-          type="button"
-          onClick={() => {
-            if (target > 2) {
-              setTarget(target - 1);
-              if (target - 1 <= current) setCurrent(current - 1);
-            }
-          }}
-        >
-          –
-        </button>
-        <span>{target}</span>
-        <button
-          className="inc"
-          type="button"
-          onClick={() => setTarget(target + 1)}
-        >
-          +
-        </button>
-      </div>
-      <p>Modifier</p>
-      <div className="stepper">
-        <button
-          className="dec"
-          type="button"
-          onClick={() => setModifier(modifier - 1)}
-        >
-          –
-        </button>
-        <span>{modifier}</span>
-        <button
-          className="inc"
-          type="button"
-          onClick={() => setModifier(modifier + 1)}
-        >
-          +
-        </button>
-      </div>
-      <p>Cost: {getSkillCost(current, target, modifier)}</p>
-    </div>
+    </>
   );
 };
