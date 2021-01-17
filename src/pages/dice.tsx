@@ -13,6 +13,7 @@ import {
   explodingD10,
   validExplodeRange,
 } from '../utils/dice-roller';
+import { Heading } from '../components/heading';
 
 export const Dice = () => {
   const segments = ['d5', 'd10', 'd10 OR', 'd20'];
@@ -62,6 +63,7 @@ export const Dice = () => {
 
   return (
     <>
+      <Heading>Dice Roller</Heading>
       <div tw="flex flex-col justify-center" css={card}>
         <div tw="mb-3">
           <SegmentedControl
