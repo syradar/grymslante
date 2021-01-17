@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useState } from 'react';
 import tw, { css } from 'twin.macro';
 
 export interface StepperProps {
