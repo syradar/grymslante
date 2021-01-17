@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import tw, { css } from 'twin.macro';
+import tw, { css, TwStyle } from 'twin.macro';
 
 export interface StepperProps {
   id: string;
+  twProps?: TwStyle;
   label?: string;
   max: number;
   min: number;
@@ -29,7 +30,7 @@ export function Stepper(props: StepperProps) {
   };
 
   return (
-    <div tw="">
+    <div css={props.twProps}>
       {props.label && (
         <label tw="block mb-1" htmlFor={props.id}>
           {props.label}
