@@ -18,7 +18,10 @@ export const Dice = () => {
   };
 
   const [modifier, setModifier] = useState(0);
-  const handleModifierChange = (value: number) => setModifier(value);
+  const handleModifierChange = (value: number) => {
+    setModifier(value);
+    setDiceResult(undefined);
+  };
 
   const [diceResult, setDiceResult] = useState<number>();
 
