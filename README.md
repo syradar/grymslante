@@ -9,4 +9,4 @@
 
 ## License
 
-All code is lincensed MIT.
+All code is lincensed [MIT](https://github.com/syradar/grymslante/blob/master/LICENSE).
