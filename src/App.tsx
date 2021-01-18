@@ -8,7 +8,6 @@ import Footer from './components/footer';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Skills } from './pages/skills';
 import { Dice } from './pages/dice';
-import { Home } from './pages/home';
 import { Names } from './pages/names';
 import { Changelog } from './pages/changelog';
 
@@ -40,7 +39,7 @@ function App() {
             <div tw="px-3 container mx-auto">
               <Switch>
                 <Route exact path="/">
-                  <Home />
+                  <Names />
                 </Route>
                 <Route path="/skills">
                   <Skills />
