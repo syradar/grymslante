@@ -6,7 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => (
-  <nav tw="mb-5 bg-gray-300 dark:bg-gray-700">
+  <nav tw="mb-12 bg-gray-300 dark:bg-gray-700">
     <ul tw="grid grid-flow-col gap-x-3">
       <li tw="">
         <Link
