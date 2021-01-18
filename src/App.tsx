@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Skills } from './pages/skills';
 import { Dice } from './pages/dice';
 import { Home } from './pages/home';
