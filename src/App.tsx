@@ -22,11 +22,11 @@ function App() {
   return (
     <Router basename="/grymslante">
       <div className={`app ${darkMode ? 'dark' : 'light'}`}>
-        <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
+        <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 dark:bg-gray-900 dark:text-gray-50">
           <div tw="pb-4 flex-auto flex-shrink-0">
-            <div tw="p-1 px-3 mb-3 bg-gray-100 dark:bg-gray-800 flex justify-end">
+            <div tw="p-1 px-3 mb-3  flex justify-end">
               <button
-                tw="py-1 px-2 rounded bg-gray-200 dark:bg-gray-700 text-xs"
+                tw="py-1 px-2 rounded bg-gray-300 dark:bg-gray-700 text-xs"
                 onClick={() => setDarkMode(!darkMode)}
               >
                 {darkMode ? 'Back to the Light' : 'Embrace the Darkness'}
