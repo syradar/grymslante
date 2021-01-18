@@ -1,6 +1,6 @@
 {
   "short_name": "Grymslante",
-  "name": "Grymslante",
+  "name": "Grymslante - Tool for Trudvang",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#dc2626",
+  "background_color": "#111827"
 }
