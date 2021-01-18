@@ -11,9 +11,9 @@ const Navbar = () => (
       <li tw="">
         <Link
           css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
-          to="/"
+          to="/names"
         >
-          Home
+          Names
         </Link>
       </li>
       <li tw="">
@@ -33,14 +33,6 @@ const Navbar = () => (
           to="/dice"
         >
           Dice
-        </Link>
-      </li>
-      <li tw="">
-        <Link
-          css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
-          to="/names"
-        >
-          Names
         </Link>
       </li>
     </ul>
