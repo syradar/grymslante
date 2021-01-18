@@ -5,15 +5,25 @@ import { useState } from 'react';
 
 import { SegmentedControl } from '../components/segmented-control';
 import { Stepper } from '../components/stepper';
-import { buttonPrimary, card } from '../styles';
+import { buttonPrimary, card, h3Style, buttonSubtle } from '../styles';
 import {
   d10,
   d20,
   d5,
+  DiceResults,
   explodingD10,
   validExplodeRange,
 } from '../utils/dice-roller';
 import { Heading } from '../components/heading';
+
+interface RollResult extends DiceResults {
+  modifier: number;
+}
+
+interface RollHistoryItem {
+  roll: string;
+  result: string;
+}
 
 export const Dice = () => {
   const segments = ['d5', 'd10', 'd10 OR', 'd20'];
@@ -36,7 +46,10 @@ export const Dice = () => {
     setDiceResult(undefined);
   };
 
-  const [diceResult, setDiceResult] = useState<number>();
+  const [rollHistory, setRollHistory] = useState<RollHistoryItem[]>([]);
+  const clearRollHistory = () => setRollHistory([]);
+
+  const [diceResult, setDiceResult] = useState<RollResult | undefined>();
 
   const getDieType = (die: string) => {
     switch (die) {
@@ -52,65 +65,119 @@ export const Dice = () => {
     }
   };
 
+  const displaySign = (num: number): string => {
+    return modifier > 0 ? `+ ${modifier}` : `– ${Math.abs(modifier)}`;
+  };
+
+  const getDieToRoll = (): string => {
+    const die = `1${segments[active]}`;
+
+    const or = `${
+      segments[active] === 'd10 OR'
+        ? explodeOn === 10
+          ? `(10)`
+          : `(${explodeOn}–10)`
+        : ''
+    }`;
+    const mod = `${modifier !== 0 ? displaySign(modifier) : ''}
+    `;
+    return [die, or, mod].join(' ');
+  };
+
   const rollDie = () => {
     const dieFn = getDieType(segments[active]);
-    const result =
-      segments[active] === 'd10 OR' && validExplodeRange(explodeOn)
-        ? dieFn(explodeOn) + modifier
-        : dieFn() + modifier;
-    setDiceResult(() => result);
+    const result = {
+      ...(segments[active] === 'd10 OR' && validExplodeRange(explodeOn)
+        ? dieFn(explodeOn)
+        : dieFn()),
+      modifier,
+    };
+    setDiceResult(result);
+    setRollHistory([
+      {
+        result: result.sum.toString(),
+        roll: getDieToRoll(),
+      },
+      ...rollHistory,
+    ]);
   };
 
   return (
     <>
       <Heading>Dice Roller</Heading>
-      <div tw="flex flex-col justify-center" css={card}>
-        <div tw="mb-3">
-          <SegmentedControl
-            segments={segments}
-            selectedIndex={active}
-            onSegmentClick={(index) => handleSegmentClick(index)}
-          ></SegmentedControl>
-        </div>
-        <div tw="grid grid-flow-col mb-5">
-          <Stepper
-            id={'diceModifier'}
-            label={'Modifier'}
-            min={-10}
-            max={10}
-            value={modifier}
-            onChange={(value) => handleModifierChange(value)}
-          ></Stepper>
-          {segments[active] === 'd10 OR' && (
+      <div tw="grid lg:grid-flow-col" css={card}>
+        <div tw="">
+          <div tw="mb-3">
+            <SegmentedControl
+              segments={segments}
+              selectedIndex={active}
+              onSegmentClick={(index) => handleSegmentClick(index)}
+            ></SegmentedControl>
+          </div>
+          <div tw="grid grid-flow-col mb-12 auto-cols-fr">
             <Stepper
-              id={'explodingModifier'}
-              label={'Explode on'}
-              min={2}
+              id={'diceModifier'}
+              label={'Modifier'}
+              min={-10}
               max={10}
-              value={explodeOn}
-              onChange={(value) => handleExplodeOn(value)}
+              value={modifier}
+              onChange={(value) => handleModifierChange(value)}
             ></Stepper>
+            {segments[active] === 'd10 OR' && (
+              <Stepper
+                id={'explodingModifier'}
+                label={'Explode on'}
+                min={2}
+                max={10}
+                value={explodeOn}
+                onChange={(value) => handleExplodeOn(value)}
+              ></Stepper>
+            )}
+          </div>
+          <div tw="flex justify-center mb-12">
+            <button tw="" css={buttonPrimary} onClick={rollDie}>
+              Roll {getDieToRoll()}
+            </button>
+          </div>
+        </div>
+        <div
+          tw="mb-12 text-9xl flex flex-col items-center justify-self-center"
+          css={[
+            {
+              minHeight: '9rem',
+              minWidth: '3ch',
+              maxWidth: '3ch',
+            },
+          ]}
+        >
+          {diceResult && (
+            <>
+              <div tw="text-9xl text-center">{diceResult.sum}</div>
+              <div tw="text-xs text-gray-200 text-center">
+                {`Roll: ${diceResult.rolls.join(' + ')} ${
+                  modifier !== 0 ? displaySign(modifier) : ''
+                }`}
+              </div>
+            </>
           )}
         </div>
-        <div tw="flex justify-center mb-12">
-          <button tw="" css={buttonPrimary} onClick={rollDie}>
-            Roll 1{segments[active]}
-            {segments[active] === 'd10 OR' && (
-              <span> ({explodeOn === 10 ? `10` : `${explodeOn}–10`})</span>
-            )}
-            {modifier !== 0 && (
-              <span>
-                {modifier > 0 ? ' +' : ' '}
-                {modifier}
-              </span>
-            )}
-          </button>
+        <div>
+          <div tw="flex items-center mb-1 justify-between">
+            <h3 css={[h3Style(), tw`mb-0`]}>Roll History</h3>
+            <button css={[buttonSubtle()]} onClick={() => clearRollHistory()}>
+              Clear
+            </button>
+          </div>
+          <div tw="text-gray-300 p-3 rounded-lg dark:bg-gray-600 overflow-x-scroll h-96">
+            {rollHistory &&
+              rollHistory.map((rh) => (
+                <div tw="mb-2">
+                  <div>{rh.roll}</div>
+                  <div tw="font-bold">{rh.result}</div>
+                </div>
+              ))}
+          </div>
         </div>
-        {diceResult && (
-          <>
-            <div tw="text-9xl text-center">{diceResult}</div>
-          </>
-        )}
       </div>
     </>
   );
