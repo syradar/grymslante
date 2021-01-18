@@ -3,7 +3,7 @@
 import tw, { css } from 'twin.macro';
 import { useState } from 'react';
 
-import { buttonPrimary, card } from '../styles';
+import { buttonPrimary } from '../styles';
 
 import { NameList } from './name-list';
 import { capitalize, choice, range } from '../utils/utils';

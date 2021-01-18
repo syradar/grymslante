@@ -4,7 +4,7 @@ import tw, { css } from 'twin.macro';
 import { useState } from 'react';
 
 import { SegmentedControl } from '../components/segmented-control';
-import { buttonPrimary, card } from '../styles';
+import { buttonPrimary } from '../styles';
 
 import peopleNames from '../data/people-names.json';
 import { NameList } from './name-list';
