@@ -1,164 +1,100 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import tw, { css } from 'twin.macro';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { SegmentedControl } from '../components/segmented-control';
-import { buttonPrimary, card } from '../styles';
-
+import { card } from '../styles';
 import { Heading } from '../components/heading';
+import { NamesPeople } from '../components/names-people';
+import { GenericNameGenerator } from '../components/generic-name-generator';
+import innNames from '../data/inn-names.json';
+import villageNames from '../data/village-names.json';
+import plantNames from '../data/plant-names.json';
 
-import peopleNames from '../data/people-names.json';
-import { rollDice } from '../utils/dice-roller';
+type NameGeneratorTypes = 'People' | 'Inns' | 'Villages' | 'Plants';
+
+interface NameGenerator {
+  label: NameGeneratorTypes;
+  component: React.FC;
+}
+
+const nameGenerators: NameGenerator[] = [
+  {
+    label: 'People',
+    component: NamesPeople,
+  },
+  {
+    label: 'Inns',
+    component: Heading,
+  },
+  {
+    label: 'Villages',
+    component: NamesPeople,
+  },
+  {
+    label: 'Plants',
+    component: NamesPeople,
+  },
+];
 
 export const Names = () => {
-  const segments = [
-    'Mittlander',
-    'Stormlander',
-    'Virann',
-    'Elf',
-    'Dwarf',
-    'Troll',
-  ];
-
-  const emptyNames = {
-    male: [],
-    female: [],
-    both: [],
-  };
-
-  const [nameResult, setNameResult] = useState({ ...emptyNames });
-
+  const segments: NameGeneratorTypes[] = nameGenerators.map((ng) => ng.label);
   const [active, setActive] = useState(0);
 
   const handleSegmentClick = (index: number) => {
     setActive(index);
-    setNameResult({ ...emptyNames });
-  };
-
-  const choice = (names: string[]): string => {
-    const randomNumber = rollDice(0, names.length - 1)();
-    return names[randomNumber];
-  };
-
-  const range = (n: number) => Array.from({ length: n }, (_, key) => key);
-
-  type Suffix = {
-    [type in string]?: string[];
-  };
-
-  type Names = {
-    people: string;
-    prefix: string[];
-    suffix: Suffix;
-  };
-
-  const capitalize = (s: string) => s[0].toUpperCase() + s.slice(1);
-
-  const handleGenerateNameClick = () => {
-    const type = segments[active].toLowerCase();
-
-    const names: Names | undefined = peopleNames.find(
-      (pn) => pn.people === type
-    );
-
-    if (names) {
-      const generatedNames = Object.keys(names.suffix)
-        .filter((k) => names.suffix[k]?.length !== 0)
-        .map((k) => {
-          const suffixes = names.suffix[k];
-
-          return {
-            [k]:
-              suffixes !== undefined
-                ? range(10).map(
-                    (_) => `${choice(names.prefix)}${choice(suffixes)}`
-                  )
-                : [''],
-          };
-        })
-        .map((a) => {
-          console.log(a);
-          return a;
-        })
-        .reduce((acc, cur) => ({ ...acc, ...cur }), {});
-
-      setNameResult(() => ({
-        ...emptyNames,
-        ...generatedNames,
-      }));
-    }
   };
 
   return (
     <>
-      <Heading>Name Generator</Heading>
+      <Heading>Name Generators</Heading>
+      <div tw="mb-5">
+        <SegmentedControl
+          segments={segments}
+          selectedIndex={active}
+          onSegmentClick={(index) => handleSegmentClick(index)}
+        ></SegmentedControl>
+      </div>
       <div css={card} tw="flex flex-col justify-center px-3">
-        <div tw="mb-12">
-          <div tw="md:hidden">
-            <SegmentedControl
-              vertical={true}
-              segments={segments}
-              selectedIndex={active}
-              onSegmentClick={(index) => handleSegmentClick(index)}
-            ></SegmentedControl>
-          </div>
-          <div tw="hidden md:block">
-            <SegmentedControl
-              vertical={false}
-              segments={segments}
-              selectedIndex={active}
-              onSegmentClick={(index) => handleSegmentClick(index)}
-            ></SegmentedControl>
-          </div>
-        </div>
-        <div tw="flex justify-center mb-12">
-          <button
-            tw="mb-5"
-            css={buttonPrimary}
-            onClick={handleGenerateNameClick}
-          >
-            Generate names
-          </button>
-        </div>
-        <div
-          tw="grid gap-x-2"
-          css={{
-            gridTemplateColumns: `repeat(${
-              Object.values(nameResult).filter((nr) => nr.length !== 0).length
-            }, minmax(0, 1fr))`,
-          }}
-        >
-          <div tw="text-center">
-            {nameResult.male.length !== 0 && <Heading h3={true}>Male</Heading>}
-            {nameResult.male.length !== 0 &&
-              nameResult.male.map((name, index) => (
-                <div tw="pb-1" key={name + index}>
-                  {capitalize(name)}
+        {(() => {
+          switch (nameGenerators[active].label) {
+            case 'People':
+              return <NamesPeople></NamesPeople>;
+            case 'Inns':
+              return (
+                // TODO: Fix state
+                <div key="inn">
+                  <GenericNameGenerator
+                    json={innNames}
+                    label={'Inn'}
+                  ></GenericNameGenerator>
                 </div>
-              ))}
-          </div>
-          <div tw="text-center">
-            {nameResult.female.length !== 0 && (
-              <Heading h3={true}>Female</Heading>
-            )}
-            {nameResult.female.length !== 0 &&
-              nameResult.female.map((name, index) => (
-                <div tw="pb-1" key={name + index}>
-                  {capitalize(name)}
+              );
+            case 'Villages':
+              return (
+                // TODO: Fix state
+                <div key="village">
+                  <GenericNameGenerator
+                    json={villageNames}
+                    label={'Village'}
+                  ></GenericNameGenerator>
                 </div>
-              ))}
-          </div>
-          <div tw="text-center">
-            {nameResult.both.length !== 0 && <Heading h3={true}>Both</Heading>}
-            {nameResult.both.length !== 0 &&
-              nameResult.both.map((name, index) => (
-                <div tw="pb-1" key={name + index}>
-                  {capitalize(name)}
+              );
+            case 'Plants':
+              return (
+                // TODO: Fix state
+                <div key="plant">
+                  <GenericNameGenerator
+                    json={plantNames}
+                    label={'Plant'}
+                  ></GenericNameGenerator>
                 </div>
-              ))}
-          </div>
-        </div>
+              );
+            default:
+              return <NamesPeople></NamesPeople>;
+          }
+        })()}
       </div>
     </>
   );

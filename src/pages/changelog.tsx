@@ -11,6 +11,14 @@ export const Changelog = () => {
       <p tw="mb-5">Changes and improvements to Grymslante.</p>
       <div css={card}>
         <div tw="mb-8">
+          <Heading h3={true}>Added Plants, Villages and Inns</Heading>
+          <p tw="mb-2">
+            Now you can generate names of beer heavy inns, plants from another
+            world and cozy villages.
+          </p>
+        </div>
+
+        <div tw="mb-8">
           <Heading h3={true}>Fixed colors and Changelog</Heading>
           <p tw="mb-2">
             I managed to forget the light theme for the Dice Roller. Darkened
