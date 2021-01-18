@@ -8,7 +8,7 @@ const Footer = () => (
   <footer
     tw="py-4 px-3 
   flex flex-col
-  bg-gray-100 dark:bg-gray-800 text-sm dark:text-gray-400"
+  bg-gray-200 dark:bg-gray-800 text-sm dark:text-gray-400"
   >
     <div tw="mb-3">
       <Link

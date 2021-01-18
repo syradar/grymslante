@@ -17,8 +17,9 @@ export const buttonPrimary = () => [
 
 export const buttonSubtle = () => [
   tw`rounded-lg py-0.5 px-1 
-    bg-gray-600 text-white 
-    hover:bg-gray-500 
+    text-gray-500 dark:text-gray-400 
+    bg-gray-300 hover:bg-gray-200
+    dark:bg-gray-600 dark:hover:bg-gray-500 
     transition-all
     shadow hover:shadow-lg
     transform-gpu

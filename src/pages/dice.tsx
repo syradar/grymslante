@@ -153,7 +153,7 @@ export const Dice = () => {
           {diceResult && (
             <>
               <div tw="text-9xl text-center">{diceResult.sum}</div>
-              <div tw="text-xs text-gray-200 text-center">
+              <div tw="text-xs text-gray-200 text-gray-500 text-center">
                 {`Roll: ${diceResult.rolls.join(' + ')} ${
                   modifier !== 0 ? displaySign(modifier) : ''
                 }`}
@@ -168,7 +168,7 @@ export const Dice = () => {
               Clear
             </button>
           </div>
-          <div tw="text-gray-300 p-3 rounded-lg dark:bg-gray-600 overflow-x-scroll h-96">
+          <div tw="text-gray-500 dark:text-gray-300 p-3 rounded-lg bg-gray-100 dark:bg-gray-600 overflow-x-scroll h-96">
             {rollHistory &&
               rollHistory.map((rh) => (
                 <div tw="mb-2">
