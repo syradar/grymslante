@@ -10,6 +10,7 @@ import { Skills } from './pages/skills';
 import { Dice } from './pages/dice';
 import { Names } from './pages/names';
 import { Changelog } from './pages/changelog';
+import { Items } from './pages/items';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -52,6 +53,9 @@ function App() {
                 </Route>
                 <Route path="/changelog">
                   <Changelog />
+                </Route>
+                <Route path="/items">
+                  <Items />
                 </Route>
               </Switch>
             </div>

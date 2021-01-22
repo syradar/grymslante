@@ -1,0 +1,487 @@
+[
+  {
+    "name": "Slave clothes",
+    "tradeValue": 200,
+    "weightInKg": 1,
+    "type": "clothes"
+  },
+  {
+    "name": "Poor clothes",
+    "tradeValue": 400,
+    "weightInKg": 1.5,
+    "type": "clothes"
+  },
+  {
+    "name": "Average clothes",
+    "tradeValue": 1000,
+    "weightInKg": 2,
+    "type": "clothes"
+  },
+  {
+    "name": "Rich clothes",
+    "tradeValue": 5000,
+    "weightInKg": 3,
+    "type": "clothes"
+  },
+  {
+    "name": "Royal attire",
+    "tradeValue": 25000,
+    "weightInKg": 5,
+    "type": "clothes"
+  },
+  { "name": "Hen", "tradeValue": 100, "type": "creature" },
+  { "name": "Goat", "tradeValue": 500, "type": "creature" },
+  { "name": "Pig", "tradeValue": 2000, "type": "creature" },
+  { "name": "Milk cow", "tradeValue": 3000, "type": "creature" },
+  { "name": "Bull", "tradeValue": 3600, "type": "creature" },
+  { "name": "Ox", "tradeValue": 3000, "type": "creature" },
+  { "name": "Donkey", "tradeValue": 2500, "type": "creature" },
+  { "name": "Horse", "tradeValue": 5000, "type": "creature" },
+  { "name": "Sled dog", "tradeValue": 800, "type": "creature" },
+  { "name": "Toboggan (packing sled)", "tradeValue": 200, "type": "transport" },
+  {
+    "name": "Sled",
+    "special": "2 seats",
+    "tradeValue": 600,
+    "type": "transport"
+  },
+  {
+    "name": "Sled",
+    "special": "4 seats",
+    "tradeValue": 1000,
+    "type": "transport"
+  },
+  {
+    "name": "Wagon (2 wheels)",
+    "special": "2 spots",
+    "tradeValue": 600,
+    "type": "transport"
+  },
+  {
+    "name": "Wagon",
+    "special": "4 spots",
+    "tradeValue": 1000,
+    "type": "transport"
+  },
+  {
+    "name": "Wagon (4 wheels)",
+    "special": "2 + 2 spots",
+    "tradeValue": 1800,
+    "type": "transport"
+  },
+  {
+    "name": "Wagon (4 wheels)",
+    "special": "2 + 4 spots",
+    "tradeValue": 2200,
+    "type": "transport"
+  },
+  {
+    "name": "Wagon (4 wheels)",
+    "special": "2 + 8 spots",
+    "tradeValue": 2600,
+    "type": "transport"
+  },
+  {
+    "name": "Tank",
+    "special": "2 spots",
+    "tradeValue": 10000,
+    "type": "transport"
+  },
+  {
+    "name": "Pole boat",
+    "special": "1 spot",
+    "tradeValue": 200,
+    "type": "transport"
+  },
+  {
+    "name": "Skin boat",
+    "special": "2 spots",
+    "tradeValue": 400,
+    "type": "transport"
+  },
+  {
+    "name": "Wooden boat",
+    "special": "4 spots",
+    "tradeValue": 1000,
+    "type": "transport"
+  },
+  {
+    "name": "Karve (1-ton load)",
+    "special": "5-20 spots",
+    "tradeValue": 25000,
+    "type": "transport"
+  },
+  {
+    "name": "Knarr (3-ton load)",
+    "special": "10-30 spots",
+    "tradeValue": 50000,
+    "type": "transport"
+  },
+
+  {
+    "name": "Camp kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 5,
+    "tradeValue": 200
+  },
+  {
+    "name": "Camp kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 10,
+    "tradeValue": 400
+  },
+  {
+    "name": "Camp kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 25,
+    "tradeValue": 800
+  },
+  {
+    "name": "Craft kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 3,
+    "tradeValue": 200
+  },
+  {
+    "name": "Craft kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 8,
+    "tradeValue": 400
+  },
+  {
+    "name": "Craft kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 15,
+    "tradeValue": 800
+  },
+  {
+    "name": "Fishing kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 1,
+    "tradeValue": 50
+  },
+  {
+    "name": "Fishing kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 5,
+    "tradeValue": 100
+  },
+  {
+    "name": "Fishing kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 10,
+    "tradeValue": 200
+  },
+  {
+    "name": "Folk musician kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 3,
+    "tradeValue": 150
+  },
+  {
+    "name": "Folk musician kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 5,
+    "tradeValue": 300
+  },
+  {
+    "name": "Folk musician kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 10,
+    "tradeValue": 600
+  },
+  {
+    "name": "Healing kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 2,
+    "tradeValue": 200
+  },
+  {
+    "name": "Healing kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 5,
+    "tradeValue": 400
+  },
+  {
+    "name": "Healing kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 8,
+    "tradeValue": 800
+  },
+  {
+    "name": "Hunting kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 3,
+    "tradeValue": 200
+  },
+  {
+    "name": "Hunting kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 8,
+    "tradeValue": 400
+  },
+  {
+    "name": "Hunting kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 15,
+    "tradeValue": 800
+  },
+  {
+    "name": "Thief kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 2,
+    "tradeValue": 100
+  },
+  {
+    "name": "Thief kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 8,
+    "tradeValue": 200
+  },
+  {
+    "name": "Thief kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 14,
+    "tradeValue": 400
+  },
+  {
+    "name": "Weapon kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 2,
+    "tradeValue": 100
+  },
+  {
+    "name": "Weapon kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 3,
+    "tradeValue": 200
+  },
+  {
+    "name": "Weapon kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 5,
+    "tradeValue": 400
+  },
+  {
+    "name": "Writer kit",
+    "type": "adventure kit",
+    "special": "Small",
+    "weightInKg": 2,
+    "tradeValue": 100
+  },
+  {
+    "name": "Writer kit",
+    "type": "adventure kit",
+    "special": "Ordinary",
+    "weightInKg": 5,
+    "tradeValue": 200
+  },
+  {
+    "name": "Writer kit",
+    "type": "adventure kit",
+    "special": "Large",
+    "weightInKg": 8,
+    "tradeValue": 400
+  },
+  { "name": "Cereal", "tradeValue": 20, "special": "(per kg)", "type": "food" },
+  { "name": "Bread", "tradeValue": 10, "special": "(per kg)", "type": "food" },
+  {
+    "name": "Milk",
+    "tradeValue": 10,
+    "special": "(per liter)",
+    "type": "food"
+  },
+  {
+    "name": "Dried meat",
+    "tradeValue": 50,
+    "special": "(per kg)",
+    "type": "food"
+  },
+  { "name": "Fish", "tradeValue": 40, "special": "(per kg)", "type": "food" },
+  { "name": "Fruit", "tradeValue": 30, "special": "(per kg)", "type": "food" },
+  {
+    "name": "Turnips",
+    "tradeValue": 10,
+    "special": "(per kg)",
+    "type": "food"
+  },
+  {
+    "name": "Mead/beer",
+    "tradeValue": 20,
+    "special": "(per liter)",
+    "type": "food"
+  },
+  {
+    "name": "Sour milk",
+    "tradeValue": 150,
+    "special": "(per liter)",
+    "type": "food"
+  },
+  { "name": "Feed", "tradeValue": 10, "special": "(per kg)", "type": "food" },
+
+  {
+    "name": "Craftsman (per hour)",
+    "special": "Apprentice",
+    "tradeValue": 20,
+    "type": "service"
+  },
+  {
+    "name": "Craftsman (per hour)",
+    "special": "Journeyman",
+    "tradeValue": 50,
+    "type": "service"
+  },
+  {
+    "name": "Craftsman (per hour)",
+    "special": "Knowledgeable",
+    "tradeValue": 100,
+    "type": "service"
+  },
+  {
+    "name": "Craftsman (per hour)",
+    "special": "Master",
+    "tradeValue": 300,
+    "type": "service"
+  },
+  {
+    "name": "Craftsman (per hour)",
+    "special": "Legend",
+    "tradeValue": 500,
+    "type": "service"
+  },
+  {
+    "name": "Errand boy",
+    "special": "Per errand",
+    "tradeValue": 10,
+    "type": "service"
+  },
+  {
+    "name": "Farmhands",
+    "special": "Per day",
+    "tradeValue": 100,
+    "type": "service"
+  },
+  { "name": "Lodging", "special": "Farm", "tradeValue": 20, "type": "service" },
+  {
+    "name": "Lodging",
+    "special": "Open house",
+    "tradeValue": 100,
+    "type": "service"
+  },
+  {
+    "name": "Lodging",
+    "special": "Princely chambers",
+    "tradeValue": 2000,
+    "type": "service"
+  },
+  { "name": "Meals", "special": "Poor", "tradeValue": 20, "type": "service" },
+  {
+    "name": "Meals",
+    "special": "Average",
+    "tradeValue": 50,
+    "type": "service"
+  },
+  {
+    "name": "Meals",
+    "special": "Princely",
+    "tradeValue": 2000,
+    "type": "service"
+  },
+  {
+    "name": "Sellsword (1 day)",
+    "special": "Novice",
+    "tradeValue": 100,
+    "type": "service"
+  },
+  {
+    "name": "Sellsword (1 day)",
+    "special": "Carrier",
+    "tradeValue": 200,
+    "type": "service"
+  },
+  {
+    "name": "Sellsword (1 day)",
+    "special": "Hero",
+    "tradeValue": 400,
+    "type": "service"
+  },
+  {
+    "name": "Sellsword (1 day)",
+    "special": "Master",
+    "tradeValue": 800,
+    "type": "service"
+  },
+  {
+    "name": "Shadow walker (per victim)",
+    "special": "Slave (2–20 sc",
+    "tradeValue": 200,
+    "type": "service"
+  },
+  {
+    "name": "Shadow walker (per victim)",
+    "special": "Poor (10–100 sc",
+    "tradeValue": 1000,
+    "type": "service"
+  },
+  {
+    "name": "Shadow walker (per victim)",
+    "special": "Guardian (50–500 sc",
+    "tradeValue": 5000,
+    "type": "service"
+  },
+  {
+    "name": "Shadow walker (per victim)",
+    "special": "Rich (100–1 000 sc",
+    "tradeValue": 10000,
+    "type": "service"
+  },
+  {
+    "name": "Shadow walker (per victim)",
+    "special": "Prince (200–2 000 sc",
+    "tradeValue": 20000,
+    "type": "service"
+  },
+  {
+    "name": "Travel on ships",
+    "special": "Per day",
+    "tradeValue": 100,
+    "type": "service"
+  },
+  {
+    "name": "Writer",
+    "special": "Copy 1 page",
+    "tradeValue": 100,
+    "type": "service"
+  },
+  { "name": "Writer", "special": "Poem", "tradeValue": 150, "type": "service" },
+  {
+    "name": "Writer",
+    "special": "Memorial per day",
+    "tradeValue": 300,
+    "type": "service"
+  }
+]
