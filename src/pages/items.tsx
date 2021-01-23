@@ -86,22 +86,12 @@ export const Items = () => {
       ? itms.slice(0)
       : itemTypeFilter(filterButtons)(itms);
 
-  const filterItemList = (
-    nfb: readonly FilterButton[],
-    il: ItemList<SpecialItem>
-  ): ItemList<SpecialItem> => ({
-    ...il,
-    filters: nfb,
-    results: onlyFilterByTypeFunctionIfOneActive(nfb)(items),
-  });
-
   const filterItemsByType = (
     fb: FilterButton,
     itemList: ItemList<SpecialItem>
   ) => {
     const newFilterButtons = updateFilterButtons(fb, itemList.filters);
 
-    // setItemList(() => filterItemList(newFilterButtons, itemList));
     setItemList(() => ({
       ...itemList,
       searchQuery: itemList.searchQuery,
@@ -206,9 +196,9 @@ export const Items = () => {
         </div>
         <table tw="w-full">
           <thead tw="table-header-group">
-            <tr tw="table-row">
+            <tr tw="table-row border-b">
               <th
-                tw="table-cell text-left cursor-pointer hover:bg-red-800"
+                tw="table-cell text-left"
                 css={tableCellStyle}
                 // onClick={() => sort('name', ascending)}
               >
@@ -220,7 +210,7 @@ export const Items = () => {
               {itemList.results.some((i) => i.weightInKg) && (
                 <th
                   css={tableCellStyle}
-                  tw="table-cell text-right cursor-pointer hover:bg-red-800"
+                  tw="table-cell text-right"
                   // onClick={() => sort('weightInKg', ascending)}
                 >
                   Weight
@@ -229,14 +219,14 @@ export const Items = () => {
 
               <th
                 css={tableCellStyle}
-                tw="table-cell text-right cursor-pointer hover:bg-red-800"
+                tw="table-cell text-right"
                 // onClick={() => sort('tradeValue', ascending)}
               >
                 Trade Value
               </th>
               <th
                 css={tableCellStyle}
-                tw="table-cell text-right cursor-pointer hover:bg-red-800"
+                tw="table-cell text-right"
                 // onClick={() => sort('tradeValue', ascending)}
               >
                 Coins
@@ -248,7 +238,7 @@ export const Items = () => {
             {itemList.results.map((i) => (
               <tr
                 key={i.name + i.tradeValue.toString()}
-                tw="border-b last-of-type:border-b-0 odd-of-type:bg-gray-100 dark:odd-of-type:bg-gray-800 hover:bg-red-100 dark:hover:bg-red-900 table-row light:border-gray-200 dark:border-gray-600"
+                tw="border-b last-of-type:border-b-0 odd-of-type:bg-gray-100 dark:odd-of-type:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 table-row light:border-gray-200 dark:border-gray-600"
               >
                 <td css={tableCellStyle} tw="table-cell">
                   {i.name}

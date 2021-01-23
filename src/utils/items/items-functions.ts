@@ -1,4 +1,4 @@
-import compose from '../fp/compose';
+import { compose } from 'rambda';
 import { CoinPurse, CoinTypes, TradeValue } from './coin.model';
 
 export const tradeValueToCoinPurse = (tv: TradeValue): CoinPurse => ({

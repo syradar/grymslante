@@ -1,7 +1,7 @@
 import tw from 'twin.macro';
 
 export const card = () => [
-  tw`rounded-lg p-3 shadow light:bg-white dark:bg-gray-700`,
+  tw`rounded-lg p-3 shadow light:bg-white dark:bg-gray-800`,
 ];
 
 export const buttonPrimary = () => [
@@ -30,10 +30,13 @@ export const buttonSubtle = () => [
 export const filterButtonStyle = (active: boolean = false) => [
   tw`rounded-lg py-0.5 px-1 
   font-medium
-    text-gray-500 dark:text-gray-400 
-    border border-gray-400 dark:border-gray-500
-    hover:border-gray-500 hover:dark:border-gray-400`,
-  active && tw`bg-gray-400 text-gray-100 border-gray-400 dark:text-gray-900 `,
+    text-gray-600 dark:text-gray-300 
+    border border-gray-600 dark:border-gray-300
+    hover:border-red-500`,
+  active &&
+    tw`text-red-500 dark:text-red-500 
+    border-red-500 dark:border-red-500 
+    hover:border-white`,
 ];
 
 export const h2Style = () => [tw`mb-3 text-xl font-bold`];
