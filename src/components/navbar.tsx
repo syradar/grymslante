@@ -19,6 +19,14 @@ const Navbar = () => (
       <li tw="">
         <Link
           css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
+          to="/items"
+        >
+          Items
+        </Link>
+      </li>
+      <li tw="">
+        <Link
+          css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
           to="/skills"
         >
           <span tw="">Skills</span>
@@ -32,7 +40,7 @@ const Navbar = () => (
           css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
           to="/dice"
         >
-          Dice
+          Diceᛝ
         </Link>
       </li>
     </ul>
