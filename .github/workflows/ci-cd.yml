@@ -38,8 +38,10 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      
+            
       - run: yarn install
+        
+      - run: yarn compile
       
       - run: yarn build
 
