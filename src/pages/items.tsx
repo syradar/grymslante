@@ -201,17 +201,9 @@ export const Items = () => {
           </div>
         </div>
         <div tw="md:hidden">
-          {itemList.results.map(
-            ({ name, tradeValue, type, special, weightInKg }) => (
-              <ItemCard
-                name={name}
-                tradeValue={tradeValue}
-                type={type}
-                special={special}
-                weightInKg={weightInKg}
-              ></ItemCard>
-            )
-          )}
+          {itemList.results.map((item) => (
+            <ItemCard {...item}></ItemCard>
+          ))}
         </div>
         <table tw="w-full hidden md:table">
           <thead tw="table-header-group">
