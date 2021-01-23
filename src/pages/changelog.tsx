@@ -11,6 +11,18 @@ export const Changelog = () => {
         <Heading>Changelog</Heading>
         <p tw="mb-5">Changes and improvements to Grymslante.</p>
 
+        <div css={card} tw="mb-8 p-8">
+          <header>
+            <div tw="text-xs text-gray-400">2021-01-23</div>
+            <Heading h3={true}>Mobile and Tablet view for Item List </Heading>
+          </header>
+          <p tw="mb-2">
+            The table use of the Item List was not working out great on smaller
+            devices. A new design more suited for small devices has been added
+            that automatically switches when on smaller screens.
+          </p>
+        </div>
+
         <div css={card} tw="mb-8 p-8 light:bg-gray-800 light:text-gray-200">
           <header>
             <div tw="text-xs text-gray-400">2021-01-23</div>

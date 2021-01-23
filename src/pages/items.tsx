@@ -10,28 +10,29 @@ import { SpecialItem } from '../utils/items/items.model';
 import { tvToFormattedCoins } from '../utils/items/items-functions';
 import { compose, map, pluck, uniq } from 'rambda';
 import { capitalize } from '../utils/utils';
+import { ItemCard } from '../components/item-card';
+
+interface FilterButton {
+  type: string;
+  active: boolean;
+}
+
+interface Sorting<T> {
+  key: keyof T;
+  ascending: boolean;
+}
+
+type Query = string;
+
+interface ItemList<T> {
+  results: readonly T[];
+  searchQuery: Query;
+  sorting: Sorting<T>;
+  filters: readonly FilterButton[];
+}
 
 export const Items = () => {
   const items: readonly SpecialItem[] = itemData;
-
-  interface FilterButton {
-    type: string;
-    active: boolean;
-  }
-
-  interface Sorting<T> {
-    key: keyof T;
-    ascending: boolean;
-  }
-
-  type Query = string;
-
-  interface ItemList<T> {
-    results: readonly T[];
-    searchQuery: Query;
-    sorting: Sorting<T>;
-    filters: readonly FilterButton[];
-  }
 
   const uniqueItemTypes = (is: SpecialItem[]) =>
     compose(uniq, (is: SpecialItem[]) => pluck('type', is))(is);
@@ -168,7 +169,26 @@ export const Items = () => {
     <>
       <Heading>Items</Heading>
       <div css={card}>
-        <div tw="flex justify-between">
+        <div tw="flex justify-between flex-col lg:flex-row mb-4">
+          <div tw="lg:order-last mb-4">
+            <div tw="flex flex-wrap gap-2">
+              {itemList.filters.map((filter) => (
+                <button
+                  key={filter.type}
+                  onClick={() => filterItemsByType(filter, itemList)}
+                  tw="flex-grow flex-shrink"
+                  css={[
+                    css`
+                      word-break: keep-all;
+                    `,
+                    filterButtonStyle(filter.active),
+                  ]}
+                >
+                  {capitalize(filter.type)}
+                </button>
+              ))}
+            </div>
+          </div>
           <div>
             <label htmlFor="item-search">Search name: </label>
             <input
@@ -179,22 +199,21 @@ export const Items = () => {
               ref={inputRef}
             />
           </div>
-          <div>
-            <div tw="flex">
-              {itemList.filters.map((filter) => (
-                <button
-                  key={filter.type}
-                  onClick={() => filterItemsByType(filter, itemList)}
-                  tw="mr-4 last:mr-0"
-                  css={filterButtonStyle(filter.active)}
-                >
-                  {capitalize(filter.type)}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
-        <table tw="w-full">
+        <div tw="md:hidden">
+          {itemList.results.map(
+            ({ name, tradeValue, type, special, weightInKg }) => (
+              <ItemCard
+                name={name}
+                tradeValue={tradeValue}
+                type={type}
+                special={special}
+                weightInKg={weightInKg}
+              ></ItemCard>
+            )
+          )}
+        </div>
+        <table tw="w-full hidden md:table">
           <thead tw="table-header-group">
             <tr tw="table-row border-b">
               <th
