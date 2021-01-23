@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { render } from 'react-dom';
 import './index.css';
 import App from './App';
@@ -21,8 +21,6 @@ const Grymslante = () => {
       <I18nProvider i18n={i18n}>
         <App />
       </I18nProvider>
-      {/* <Suspense fallback={<div>Loading...</div>}>
-      </Suspense> */}
     </React.StrictMode>
   );
 };
