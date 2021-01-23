@@ -40,7 +40,7 @@ const Navbar = () => (
           css={tw`flex justify-center items-center text-center py-3 px-2 hover:bg-red-500 hover:text-white hover:transition-colors`}
           to="/dice"
         >
-          Diceᛝ
+          Dice
         </Link>
       </li>
     </ul>
