@@ -28,15 +28,14 @@ export const buttonSubtle = () => [
 ];
 
 export const filterButtonStyle = (active: boolean = false) => [
-  tw`rounded-lg py-0.5 px-1 
+  tw`rounded-lg py-1 px-2 
   font-medium
     text-gray-600 dark:text-gray-300 
     border border-gray-600 dark:border-gray-300
-    hover:border-red-500`,
+     text-sm break-all`,
   active &&
     tw`text-red-500 dark:text-red-500 
-    border-red-500 dark:border-red-500 
-    hover:border-white`,
+    border-red-500 dark:border-red-500`,
 ];
 
 export const h2Style = () => [tw`mb-3 text-xl font-bold`];
