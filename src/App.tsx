@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import tw from 'twin.macro';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
@@ -15,10 +15,6 @@ import { useDarkMode } from './services/dark-mode.service';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
-
-  useEffect(() => {
-    document.title = 'Grymslante';
-  }, []);
 
   if (!componentMounted) {
     return <div />;
