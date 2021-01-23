@@ -12,6 +12,9 @@ import { Names } from './pages/names';
 import { Changelog } from './pages/changelog';
 import { Items } from './pages/items';
 import { useDarkMode } from './services/dark-mode.service';
+import { Trans } from '@lingui/macro';
+import { LocaleSwitcher } from './components/locale-switcher';
+import { ThemeSwitcher } from './components/theme-switcher';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -21,22 +24,20 @@ function App() {
   }
 
   return (
-    <Router basename="/grymslante">
+    <Router>
       <div className={`app ${theme}`}>
         <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 light:text-gray-800 dark:bg-gray-900 dark:text-gray-300">
           <div tw="pb-4 flex-auto flex-shrink-0">
-            <div tw="p-1 px-3 mb-3  flex justify-end">
-              <button
-                tw="py-1 px-2 rounded bg-gray-300 dark:bg-gray-700 text-xs"
-                onClick={() => toggleTheme()}
-              >
-                {theme === 'dark'
-                  ? 'Back to the Light'
-                  : 'Embrace the Darkness'}
-              </button>
+            <div tw="mt-2 px-3 pb-4 flex justify-between">
+              <LocaleSwitcher></LocaleSwitcher>
+              <ThemeSwitcher
+                theme={theme}
+                toggleTheme={toggleTheme}
+              ></ThemeSwitcher>
             </div>
+
             <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
-              Grymslante
+              <Trans>Grymslante EN</Trans>
             </h1>
 
             <Navbar />

@@ -1,0 +1,1 @@
+/*eslint-disable*/module.exports={messages:{"Grymslante EN":"Grymslante EN"}};

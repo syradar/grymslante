@@ -1,18 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Suspense, useEffect } from 'react';
+import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyles } from 'twin.macro';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <GlobalStyles />
+import { i18n } from '@lingui/core';
+import { I18nProvider } from '@lingui/react';
+import { defaultLocale, dynamicActivate } from './i18n';
 
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const Grymslante = () => {
+  useEffect(() => {
+    // With this method we dynamically load the catalogs
+    dynamicActivate(defaultLocale);
+  }, []);
+
+  return (
+    <React.StrictMode>
+      <GlobalStyles />
+      <I18nProvider i18n={i18n}>
+        <App />
+      </I18nProvider>
+      {/* <Suspense fallback={<div>Loading...</div>}>
+      </Suspense> */}
+    </React.StrictMode>
+  );
+};
+
+render(<Grymslante />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
