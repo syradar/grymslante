@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/grymslante/static/css/main.9cb86647.chunk.css",
-    "main.js": "/grymslante/static/js/main.637b73e5.chunk.js",
-    "main.js.map": "/grymslante/static/js/main.637b73e5.chunk.js.map",
+    "main.js": "/grymslante/static/js/main.1cdfe55e.chunk.js",
+    "main.js.map": "/grymslante/static/js/main.1cdfe55e.chunk.js.map",
     "runtime-main.js": "/grymslante/static/js/runtime-main.8ed37e97.js",
     "runtime-main.js.map": "/grymslante/static/js/runtime-main.8ed37e97.js.map",
-    "static/js/2.db46a5dd.chunk.js": "/grymslante/static/js/2.db46a5dd.chunk.js",
-    "static/js/2.db46a5dd.chunk.js.map": "/grymslante/static/js/2.db46a5dd.chunk.js.map",
+    "static/js/2.859e9fff.chunk.js": "/grymslante/static/js/2.859e9fff.chunk.js",
+    "static/js/2.859e9fff.chunk.js.map": "/grymslante/static/js/2.859e9fff.chunk.js.map",
     "static/js/3.025a9209.chunk.js": "/grymslante/static/js/3.025a9209.chunk.js",
     "static/js/3.025a9209.chunk.js.map": "/grymslante/static/js/3.025a9209.chunk.js.map",
     "index.html": "/grymslante/index.html",
     "static/css/main.9cb86647.chunk.css.map": "/grymslante/static/css/main.9cb86647.chunk.css.map",
-    "static/js/2.db46a5dd.chunk.js.LICENSE.txt": "/grymslante/static/js/2.db46a5dd.chunk.js.LICENSE.txt"
+    "static/js/2.859e9fff.chunk.js.LICENSE.txt": "/grymslante/static/js/2.859e9fff.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8ed37e97.js",
-    "static/js/2.db46a5dd.chunk.js",
+    "static/js/2.859e9fff.chunk.js",
     "static/css/main.9cb86647.chunk.css",
-    "static/js/main.637b73e5.chunk.js"
+    "static/js/main.1cdfe55e.chunk.js"
   ]
 }
