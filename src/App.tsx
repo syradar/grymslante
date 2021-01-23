@@ -23,7 +23,7 @@ function App() {
   return (
     <Router basename="/grymslante">
       <div className={`app ${theme}`}>
-        <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 dark:bg-gray-900 dark:text-gray-50">
+        <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 light:text-gray-800 dark:bg-gray-900 dark:text-gray-300">
           <div tw="pb-4 flex-auto flex-shrink-0">
             <div tw="p-1 px-3 mb-3  flex justify-end">
               <button

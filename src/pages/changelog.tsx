@@ -6,11 +6,37 @@ import { Heading } from '../components/heading';
 
 export const Changelog = () => {
   return (
-    <div tw="max-w-prose">
-      <Heading>Changelog</Heading>
-      <p tw="mb-5">Changes and improvements to Grymslante.</p>
-      <div css={card}>
-        <div tw="mb-8">
+    <div tw="flex justify-center mb-24">
+      <div tw="max-w-prose">
+        <Heading>Changelog</Heading>
+        <p tw="mb-5">Changes and improvements to Grymslante.</p>
+
+        <div css={card} tw="mb-8 p-8 light:bg-gray-800 light:text-gray-200">
+          <header>
+            <div tw="text-xs text-gray-400">2021-01-23</div>
+            <Heading h3={true}>Smart Dark Mode</Heading>
+          </header>
+          <p tw="mb-2">
+            I reworked Dark Mode so that it will now check LocalStorage to see
+            if theme has been set. Otherwise it checks to see what the person
+            prefers, you can select which Theme you want in the settings of your
+            Operating System. If it can't find anything it will default to the
+            Light theme.
+          </p>
+        </div>
+
+        <div css={card} tw="mb-8 p-8">
+          <header>
+            <div tw="text-xs text-gray-400">2021-01-23</div>
+            <Heading h3={true}>Item List</Heading>
+          </header>
+          <p tw="mb-2">
+            I released the first version of the Item List. It features filtering
+            by type and searching by name.
+          </p>
+        </div>
+
+        <div css={card} tw="mb-8 p-8">
           <Heading h3={true}>Added Plants, Villages and Inns</Heading>
           <p tw="mb-2">
             Now you can generate names of beer heavy inns, plants from another
@@ -18,7 +44,7 @@ export const Changelog = () => {
           </p>
         </div>
 
-        <div tw="mb-8">
+        <div css={card} tw="mb-8 p-8">
           <Heading h3={true}>Fixed colors and Changelog</Heading>
           <p tw="mb-2">
             I managed to forget the light theme for the Dice Roller. Darkened
@@ -29,7 +55,7 @@ export const Changelog = () => {
           </p>
         </div>
 
-        <div tw="mb-8">
+        <div css={card} tw="mb-8 p-8">
           <Heading h3={true}>Improve Dice Roller</Heading>
           <p tw="mb-2">I felt that the Dice Roller was a bit lackluster.</p>
 
@@ -43,7 +69,7 @@ export const Changelog = () => {
           </ul>
         </div>
 
-        <div tw="mb-0">
+        <div css={card} tw="mb-0 p-8">
           <Heading h3={true}>Initial release</Heading>
           <p>
             Released with a Skill Calculator, Dice Roller and Name Generator.
