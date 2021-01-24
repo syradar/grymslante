@@ -12,16 +12,22 @@ import { Names } from './pages/names';
 import { Changelog } from './pages/changelog';
 import { Items } from './pages/items';
 import { useDarkMode } from './services/dark-mode.service';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const { t, i18n } = useTranslation('app');
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   if (!componentMounted) {
     return <div />;
   }
 
   return (
-    <Router basename="/grymslante">
+    <Router>
       <div className={`app ${theme}`}>
         <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 light:text-gray-800 dark:bg-gray-900 dark:text-gray-300">
           <div tw="pb-4 flex-auto flex-shrink-0">
@@ -31,12 +37,17 @@ function App() {
                 onClick={() => toggleTheme()}
               >
                 {theme === 'dark'
-                  ? 'Back to the Light'
-                  : 'Embrace the Darkness'}
+                  ? t('Back to the Light')
+                  : t('Embrace the Darkness')}
               </button>
             </div>
+            <button onClick={() => changeLanguage('sv')}>sv</button>
+            <button onClick={() => changeLanguage('en')}>EN</button>
             <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
-              Grymslante
+              {t('Grymslante')}
+            </h1>
+            <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
+              {/* <Trans >A tool for Trudvang</Trans> */}Tool
             </h1>
 
             <Navbar />

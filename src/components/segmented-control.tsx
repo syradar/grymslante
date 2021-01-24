@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { useTranslation } from 'react-i18next/*';
 import tw, { css } from 'twin.macro';
 
 export interface SegmentedControlProps {

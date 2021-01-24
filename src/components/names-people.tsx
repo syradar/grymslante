@@ -9,8 +9,11 @@ import { buttonPrimary } from '../styles';
 import peopleNames from '../data/people-names.json';
 import { NameList } from './name-list';
 import { capitalize, choice, range } from '../utils/utils';
+import { useTranslation } from 'react-i18next';
 
 export const NamesPeople = () => {
+  const { t, i18n } = useTranslation('names');
+
   const segments = [
     'Mittlander',
     'Stormlander',
@@ -18,7 +21,7 @@ export const NamesPeople = () => {
     'Elf',
     'Dwarf',
     'Troll',
-  ];
+  ].map((seg) => t(['people', seg]));
 
   const emptyNames = {
     male: [],
@@ -98,7 +101,7 @@ export const NamesPeople = () => {
       </div>
       <div tw="flex justify-center mb-12">
         <button tw="mb-5" css={buttonPrimary} onClick={handleGenerateNameClick}>
-          Generate names
+          {t('Generate names')}
         </button>
       </div>
       <div
