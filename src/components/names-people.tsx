@@ -10,18 +10,37 @@ import peopleNames from '../data/people-names.json';
 import { NameList } from './name-list';
 import { capitalize, choice, range } from '../utils/utils';
 import { useTranslation } from 'react-i18next';
+import { SegmentProp } from '../pages/names';
 
 export const NamesPeople = () => {
   const { t, i18n } = useTranslation('names');
 
-  const segments = [
-    'Mittlander',
-    'Stormlander',
-    'Virann',
-    'Elf',
-    'Dwarf',
-    'Troll',
-  ].map((seg) => t(['people', seg]));
+  const segments: SegmentProp[] = [
+    {
+      id: 'Mittlander',
+      label: 'Mittlander',
+    },
+    {
+      id: 'Stormlander',
+      label: 'Stormlander',
+    },
+    {
+      id: 'Virann',
+      label: 'Virann',
+    },
+    {
+      id: 'Elf',
+      label: 'Elf',
+    },
+    {
+      id: 'Dwarf',
+      label: 'Dwarf',
+    },
+    {
+      id: 'Troll',
+      label: 'Troll',
+    },
+  ].map((seg) => ({ ...seg, label: t(`people.${seg.id}`) }));
 
   const emptyNames = {
     male: [],
@@ -49,7 +68,7 @@ export const NamesPeople = () => {
   };
 
   const handleGenerateNameClick = () => {
-    const type = segments[active].toLowerCase();
+    const type = segments[active].id.toLowerCase();
 
     const names: Names | undefined = peopleNames.find(
       (pn) => pn.people === type
@@ -103,6 +122,9 @@ export const NamesPeople = () => {
         <button tw="mb-5" css={buttonPrimary} onClick={handleGenerateNameClick}>
           {t('Generate names')}
         </button>
+        {i18n.language === 'en' && (
+          <div tw="text-xs mt-1">{t('Only Swedish names right now.')}</div>
+        )}
       </div>
       <div
         tw="grid gap-x-2"

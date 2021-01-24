@@ -26,7 +26,12 @@ interface RollHistoryItem {
 }
 
 export const Dice = () => {
-  const segments = ['d5', 'd10', 'd10 OR', 'd20'];
+  const segments = [
+    { id: 'd5', label: 'd5' },
+    { id: 'd10', label: 'd10' },
+    { id: 'd10 OR', label: 'd10 OR' },
+    { id: 'd20', label: 'd20' },
+  ];
   const [active, setActive] = useState(0);
 
   const handleSegmentClick = (index: number) => {
@@ -73,7 +78,7 @@ export const Dice = () => {
     const die = `1${segments[active]}`;
 
     const or = `${
-      segments[active] === 'd10 OR'
+      segments[active].id === 'd10 OR'
         ? explodeOn === 10
           ? `(10)`
           : `(${explodeOn}–10)`
@@ -85,9 +90,9 @@ export const Dice = () => {
   };
 
   const rollDie = () => {
-    const dieFn = getDieType(segments[active]);
+    const dieFn = getDieType(segments[active].id);
     const result = {
-      ...(segments[active] === 'd10 OR' && validExplodeRange(explodeOn)
+      ...(segments[active].id === 'd10 OR' && validExplodeRange(explodeOn)
         ? dieFn(explodeOn)
         : dieFn()),
       modifier,
@@ -123,7 +128,7 @@ export const Dice = () => {
               value={modifier}
               onChange={(value) => handleModifierChange(value)}
             ></Stepper>
-            {segments[active] === 'd10 OR' && (
+            {segments[active].id === 'd10 OR' && (
               <Stepper
                 id={'explodingModifier'}
                 label={'Explode on'}

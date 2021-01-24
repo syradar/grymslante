@@ -7,5 +7,12 @@
     "Elf": "Alv",
     "Dwarf": "Dvärg",
     "Troll": "Troll"
+  },
+  "Only Swedish names right now": "",
+  "generators": {
+    "People": "Folkslag",
+    "Inns": "Värdshus",
+    "Plants": "Växter",
+    "Villages": "Byar"
   }
 }

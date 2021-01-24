@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useTranslation } from 'react-i18next/*';
 import tw, { css } from 'twin.macro';
+import { SegmentProp } from '../pages/names';
 
 export interface SegmentedControlProps {
-  segments: string[];
+  segments: SegmentProp[];
   onSegmentClick: (index: number) => void;
   selectedIndex: number;
   vertical?: boolean;
@@ -32,7 +32,7 @@ export function SegmentedControl({
       >
         {segments.map((s, index) => (
           <button
-            key={index}
+            key={`${s.id}-${index}`}
             tw="px-2 py-1 text-sm z-10 rounded-lg relative after:bg-gray-400 after:dark:bg-gray-500"
             css={[
               {
@@ -78,7 +78,7 @@ export function SegmentedControl({
             ]}
             onClick={() => onSegmentClick(index)}
           >
-            {s}
+            {s.label}
           </button>
         ))}
         <div
