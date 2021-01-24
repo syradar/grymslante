@@ -21,7 +21,7 @@ export interface SegmentProp {
 }
 
 export const Names = () => {
-  const { t, i18n } = useTranslation('names');
+  const { t } = useTranslation('names');
 
   const nameGenerators: SegmentProp[] = [
     {
