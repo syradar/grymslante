@@ -6,6 +6,7 @@ import { card } from '../styles';
 import { useState } from 'react';
 import { Stepper } from '../components/stepper';
 import { Heading } from '../components/heading';
+import { useTranslation } from 'react-i18next';
 
 const atLeast = (lowest: number) => (value: number) =>
   value < lowest ? lowest : value;
@@ -28,6 +29,7 @@ const getSkillCost = (
       );
 
 export const Skills = () => {
+  const { t } = useTranslation('skills');
   const [current, setCurrent] = useState<number>(1);
   const [target, setTarget] = useState<number>(2);
   const [modifier, setModifier] = useState<number>(0);
@@ -48,13 +50,13 @@ export const Skills = () => {
 
   return (
     <>
-      <Heading>Skill Calculator</Heading>
-      <div css={card}>
-        <div tw="grid grid-flow-col">
+      <Heading>{t('Skill Calculator')}</Heading>
+      <div css={card} tw="flex flex-wrap justify-between">
+        <div tw="flex-auto">
           <Stepper
-            twProps={tw`mb-4`}
+            twProps={tw`mb-2`}
             id={'current'}
-            label={'Old Skill Value'}
+            label={t('Old Skill Value')}
             min={1}
             max={20}
             value={current}
@@ -62,29 +64,30 @@ export const Skills = () => {
           ></Stepper>
 
           <Stepper
-            twProps={tw`mb-4`}
+            twProps={tw`mb-2`}
+            id={'target'}
+            label={t('New Skill Value')}
+            min={2}
+            max={20}
+            value={target}
+            onChange={(value) => handleTargetChange(value)}
+          ></Stepper>
+
+          <Stepper
+            twProps={tw`mb-6`}
             id={'modifier'}
-            label={'Attribute Modifier'}
+            label={t('Attribute Modifier')}
             min={-4}
             max={4}
             value={modifier}
             onChange={(value) => setModifier(value)}
           ></Stepper>
         </div>
-
-        <Stepper
-          twProps={tw`mb-12`}
-          id={'target'}
-          label={'New Skill Value'}
-          min={2}
-          max={20}
-          value={target}
-          onChange={(value) => handleTargetChange(value)}
-        ></Stepper>
-
-        <div tw="text-center">Cost</div>
-        <div tw="text-9xl text-center">
-          {getSkillCost(current, target, modifier)}
+        <div tw="flex-auto flex flex-col justify-center md:px-16">
+          <div tw="text-center">{t('Cost')}</div>
+          <div tw="text-9xl text-center">
+            {getSkillCost(current, target, modifier)}
+          </div>
         </div>
       </div>
     </>
