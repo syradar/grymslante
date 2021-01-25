@@ -5,16 +5,21 @@ import { SpecialItem } from '../utils/items/items.model';
 import { tvToFormattedCoins } from '../utils/items/items-functions';
 import { capitalize } from '../utils/utils';
 
+export interface ItemCardProps extends SpecialItem {
+  cardId: string;
+}
+
 export const ItemCard = ({
   name,
   tradeValue,
   type,
   special,
   weightInKg,
-}: SpecialItem) => {
+  cardId,
+}: ItemCardProps) => {
   return (
     <div
-      key={`${name + tradeValue.toString()}mobile`}
+      key={cardId}
       tw="px-2 py-3 
       border-b last-of-type:border-b-0 
       odd-of-type:bg-gray-100 dark:odd-of-type:bg-gray-700 

@@ -201,8 +201,13 @@ export const Items = () => {
           </div>
         </div>
         <div tw="md:hidden">
-          {itemList.results.map((item) => (
-            <ItemCard {...item}></ItemCard>
+          {itemList.results.map((item, index) => (
+            <div key={index.toString()}>
+              <ItemCard
+                {...item}
+                cardId={`${item.name}-${item.tradeValue.toString}-mobile`}
+              ></ItemCard>
+            </div>
           ))}
         </div>
         <table tw="w-full hidden md:table">
