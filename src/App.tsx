@@ -40,9 +40,6 @@ function App() {
             <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
               {t('Grymslante')}
             </h1>
-            <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
-              {/* <Trans >A tool for Trudvang</Trans> */}Tool
-            </h1>
 
             <Navbar />
             <div tw="px-3 container mx-auto">
