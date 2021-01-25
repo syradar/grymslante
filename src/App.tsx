@@ -13,14 +13,12 @@ import { Changelog } from './pages/changelog';
 import { Items } from './pages/items';
 import { useDarkMode } from './services/dark-mode.service';
 import { useTranslation } from 'react-i18next';
+import { ThemeSwitcher } from './components/theme-switcher';
+import { LanguageSwitcher } from './components/language-switcher';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
-  const { t, i18n } = useTranslation('app');
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  const { t } = useTranslation('core');
 
   if (!componentMounted) {
     return <div />;
@@ -31,18 +29,14 @@ function App() {
       <div className={`app ${theme}`}>
         <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 light:text-gray-800 dark:bg-gray-900 dark:text-gray-300">
           <div tw="pb-4 flex-auto flex-shrink-0">
-            <div tw="p-1 px-3 mb-3  flex justify-end">
-              <button
-                tw="py-1 px-2 rounded bg-gray-300 dark:bg-gray-700 text-xs"
-                onClick={() => toggleTheme()}
-              >
-                {theme === 'dark'
-                  ? t('Back to the Light')
-                  : t('Embrace the Darkness')}
-              </button>
+            <div tw="pt-3 px-3 mb-3 flex justify-between">
+              <LanguageSwitcher></LanguageSwitcher>
+              <ThemeSwitcher
+                toggleTheme={toggleTheme}
+                theme={theme}
+              ></ThemeSwitcher>
             </div>
-            <button onClick={() => changeLanguage('sv')}>sv</button>
-            <button onClick={() => changeLanguage('en')}>EN</button>
+
             <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
               {t('Grymslante')}
             </h1>
