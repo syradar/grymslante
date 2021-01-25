@@ -1,0 +1,19 @@
+{
+  "Items": "Items",
+  "Search": "Search",
+  "clothes": "Clothes",
+  "creature": "Creature",
+  "transport": "Transport",
+  "adventure kit": "Adventure Kit",
+  "food": "Food",
+  "service": "Service",
+  "Header-Name": "Name",
+  "Header-Special": "Special",
+  "Header-Weight": "Weight",
+  "Header-TradeValue": "Trade Value",
+  "Header-Coins": "Coins",
+  "Unit-TradeValue": "tv",
+  "Unit-GoldCoin": "gc",
+  "Unit-SilverCoin": "sc",
+  "Unit-CopperCoin": "cc"
+}

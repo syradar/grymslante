@@ -1,0 +1,29 @@
+{
+  "Generate names": "Slumpa namn",
+  "people": {
+    "Mittlander": "Mittländare",
+    "Stormlander": "Stormländare",
+    "Virann": "Virann",
+    "Elf": "Alv",
+    "Dwarf": "Dvärg",
+    "Troll": "Troll"
+  },
+  "Only Swedish names right now": "",
+  "generators": {
+    "People": "Folkslag",
+    "Inns": "Värdshus",
+    "Plants": "Växter",
+    "Villages": "Byar"
+  },
+  "People": "Folkslag",
+  "Inn": "Värdshus",
+  "Plant": "Växt",
+  "Village": "By",
+  "Generate Inn names": "Slump värdshusnamn",
+  "Generate Plant names": "Slump växtnamn",
+  "Generate Village names": "Slump bynamn",
+  "Female": "Kvinna",
+  "Male": "Man",
+  "All": "Alla",
+  "Name Generators": "Slumpa namn"
+}

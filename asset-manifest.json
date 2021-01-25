@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/grymslante/static/css/main.9cb86647.chunk.css",
-    "main.js": "/grymslante/static/js/main.1cdfe55e.chunk.js",
-    "main.js.map": "/grymslante/static/js/main.1cdfe55e.chunk.js.map",
-    "runtime-main.js": "/grymslante/static/js/runtime-main.8ed37e97.js",
-    "runtime-main.js.map": "/grymslante/static/js/runtime-main.8ed37e97.js.map",
-    "static/js/2.859e9fff.chunk.js": "/grymslante/static/js/2.859e9fff.chunk.js",
-    "static/js/2.859e9fff.chunk.js.map": "/grymslante/static/js/2.859e9fff.chunk.js.map",
-    "static/js/3.025a9209.chunk.js": "/grymslante/static/js/3.025a9209.chunk.js",
-    "static/js/3.025a9209.chunk.js.map": "/grymslante/static/js/3.025a9209.chunk.js.map",
+    "main.css": "/grymslante/static/css/main.54d5b3b8.chunk.css",
+    "main.js": "/grymslante/static/js/main.448709da.chunk.js",
+    "main.js.map": "/grymslante/static/js/main.448709da.chunk.js.map",
+    "runtime-main.js": "/grymslante/static/js/runtime-main.486d6b7d.js",
+    "runtime-main.js.map": "/grymslante/static/js/runtime-main.486d6b7d.js.map",
+    "static/js/2.1f301d62.chunk.js": "/grymslante/static/js/2.1f301d62.chunk.js",
+    "static/js/2.1f301d62.chunk.js.map": "/grymslante/static/js/2.1f301d62.chunk.js.map",
+    "static/js/3.a8a9ba48.chunk.js": "/grymslante/static/js/3.a8a9ba48.chunk.js",
+    "static/js/3.a8a9ba48.chunk.js.map": "/grymslante/static/js/3.a8a9ba48.chunk.js.map",
     "index.html": "/grymslante/index.html",
-    "static/css/main.9cb86647.chunk.css.map": "/grymslante/static/css/main.9cb86647.chunk.css.map",
-    "static/js/2.859e9fff.chunk.js.LICENSE.txt": "/grymslante/static/js/2.859e9fff.chunk.js.LICENSE.txt"
+    "static/css/main.54d5b3b8.chunk.css.map": "/grymslante/static/css/main.54d5b3b8.chunk.css.map",
+    "static/js/2.1f301d62.chunk.js.LICENSE.txt": "/grymslante/static/js/2.1f301d62.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/grymslante/static/media/bilibin-webfont.9e5d30b3.woff",
+    "static/media/getFetch.cjs": "/grymslante/static/media/getFetch.d7d6010d.cjs"
   },
   "entrypoints": [
-    "static/js/runtime-main.8ed37e97.js",
-    "static/js/2.859e9fff.chunk.js",
-    "static/css/main.9cb86647.chunk.css",
-    "static/js/main.1cdfe55e.chunk.js"
+    "static/js/runtime-main.486d6b7d.js",
+    "static/js/2.1f301d62.chunk.js",
+    "static/css/main.54d5b3b8.chunk.css",
+    "static/js/main.448709da.chunk.js"
   ]
 }
