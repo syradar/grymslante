@@ -1,5 +1,5 @@
 import { compose } from 'rambda';
-import { CoinPurse, CoinTypes, TradeValue } from './coin.model';
+import { CoinPurse, CoinLabels, TradeValue } from './coin.model';
 
 export const tradeValueToCoinPurse = (tv: TradeValue): CoinPurse => ({
   gold: Math.floor(tv / 1000),
@@ -14,17 +14,19 @@ export const coinPurseToTradeValue = ({
 }: CoinPurse): TradeValue => gold * 1000 + silver * 100 + copper;
 
 // TODO: Make generic?
-const coinsOrEmptyArray = (x: number, c: CoinTypes) =>
+const coinsOrEmptyArray = (x: number, c: string) =>
   x > 0 ? [`${x} ${c}`] : [];
 
-export const formatCoinPurse = ({ gold, silver, copper }: CoinPurse): string =>
+export const formatCoinPurse = ({ gc, sc, cc }: CoinLabels) => ({
+  gold,
+  silver,
+  copper,
+}: CoinPurse): string =>
   [
-    ...coinsOrEmptyArray(gold, 'gc'),
-    ...coinsOrEmptyArray(silver, 'sc'),
-    ...coinsOrEmptyArray(copper, 'cc'),
-  ].join(', ');
+    ...coinsOrEmptyArray(gold, gc),
+    ...coinsOrEmptyArray(silver, sc),
+    ...coinsOrEmptyArray(copper, cc),
+  ].join(' ');
 
-export const tvToFormattedCoins = compose(
-  formatCoinPurse,
-  tradeValueToCoinPurse
-);
+export const tvToFormattedCoins = (coinLabels: CoinLabels) =>
+  compose(formatCoinPurse(coinLabels), tradeValueToCoinPurse);

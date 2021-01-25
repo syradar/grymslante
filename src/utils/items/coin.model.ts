@@ -7,3 +7,9 @@ export interface CoinPurse {
   silver: number;
   copper: number;
 }
+
+export interface CoinLabels {
+  gc: string;
+  sc: string;
+  cc: string;
+}

@@ -5,12 +5,13 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { card, filterButtonStyle } from '../styles';
 import { Heading } from '../components/heading';
-import itemData from '../data/items.json';
+import itemDataSv from '../data/items.json';
 import { SpecialItem } from '../utils/items/items.model';
 import { tvToFormattedCoins } from '../utils/items/items-functions';
 import { compose, map, pluck, uniq } from 'rambda';
 import { capitalize } from '../utils/utils';
 import { ItemCard } from '../components/item-card';
+import { useTranslation } from 'react-i18next';
 
 interface FilterButton {
   type: string;
@@ -32,7 +33,8 @@ interface ItemList<T> {
 }
 
 export const Items = () => {
-  const items: readonly SpecialItem[] = itemData;
+  const { t } = useTranslation('items');
+  const items: readonly SpecialItem[] = itemDataSv;
 
   const uniqueItemTypes = (is: SpecialItem[]) =>
     compose(uniq, (is: SpecialItem[]) => pluck('type', is))(is);
@@ -62,7 +64,7 @@ export const Items = () => {
       fb.type !== type
         ? fb
         : {
-            type,
+            ...fb,
             active: !active,
           }
     );
@@ -167,7 +169,7 @@ export const Items = () => {
 
   return (
     <>
-      <Heading>Items</Heading>
+      <Heading>{t('Items')}</Heading>
       <div css={card}>
         <div tw="flex justify-between flex-col lg:flex-row mb-4">
           <div tw="lg:order-last mb-4">
@@ -184,13 +186,13 @@ export const Items = () => {
                     filterButtonStyle(filter.active),
                   ]}
                 >
-                  {capitalize(filter.type)}
+                  {capitalize(t(filter.type))}
                 </button>
               ))}
             </div>
           </div>
           <div>
-            <label htmlFor="item-search">Search name: </label>
+            <label htmlFor="item-search">{t('Search')}: </label>
             <input
               id="item-search"
               tw="mb-4 rounded-lg border border-gray-400 dark:bg-gray-600 dark:shadow dark:border-0 py-1 px-2"
@@ -206,6 +208,11 @@ export const Items = () => {
               <ItemCard
                 {...item}
                 cardId={`${item.name}-${item.tradeValue.toString}-mobile`}
+                coinLabels={{
+                  gc: t('Unit-GoldCoin'),
+                  sc: t('Unit-SilverCoin'),
+                  cc: t('Unit-CopperCoin'),
+                }}
               ></ItemCard>
             </div>
           ))}
@@ -218,7 +225,7 @@ export const Items = () => {
                 css={tableCellStyle}
                 // onClick={() => sort('name', ascending)}
               >
-                Name
+                {t('Header-Name')}
               </th>
               <th css={tableCellStyle} tw="table-cell text-left">
                 Special
@@ -229,7 +236,7 @@ export const Items = () => {
                   tw="table-cell text-right"
                   // onClick={() => sort('weightInKg', ascending)}
                 >
-                  Weight
+                  {t('Header-Weight')}
                 </th>
               )}
 
@@ -238,14 +245,14 @@ export const Items = () => {
                 tw="table-cell text-right"
                 // onClick={() => sort('tradeValue', ascending)}
               >
-                Trade Value
+                {t('Header-TradeValue')}
               </th>
               <th
                 css={tableCellStyle}
                 tw="table-cell text-right"
                 // onClick={() => sort('tradeValue', ascending)}
               >
-                Coins
+                {t('Header-Coins')}
               </th>
               {/* <th></th> */}
             </tr>
@@ -268,10 +275,14 @@ export const Items = () => {
                   </td>
                 )}
                 <td css={tableCellStyle} tw="table-cell text-right">
-                  {i.tradeValue} tv
+                  {i.tradeValue} {t('Unit-TradeValue')}
                 </td>
                 <td css={tableCellStyle} tw="table-cell text-right">
-                  {tvToFormattedCoins(i.tradeValue)}
+                  {tvToFormattedCoins({
+                    gc: t('Unit-GoldCoin'),
+                    sc: t('Unit-SilverCoin'),
+                    cc: t('Unit-CopperCoin'),
+                  })(i.tradeValue)}
                 </td>
                 {/* <td css={tableCellStyle} tw="table-cell text-right w-6">
                   <div tw="flex justify-end">
