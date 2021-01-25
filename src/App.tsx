@@ -3,8 +3,8 @@
 import tw from 'twin.macro';
 import React from 'react';
 import './App.css';
-import Navbar from './components/navbar';
-import Footer from './components/footer';
+import { Navbar } from './components/navbar';
+import { Footer } from './components/footer';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Skills } from './pages/skills';
 import { Dice } from './pages/dice';

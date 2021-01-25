@@ -12,7 +12,7 @@ interface NavbarItem {
   chip?: string;
 }
 
-const Navbar = () => {
+export const Navbar = () => {
   const { t } = useTranslation('core');
 
   const pages: NavbarItem[] = [
@@ -61,5 +61,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;
