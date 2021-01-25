@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { SegmentProp } from '../pages/names';
 
 export const NamesPeople = () => {
-  const { t, i18n } = useTranslation('names');
+  const { t } = useTranslation('names');
 
   const segments: SegmentProp[] = [
     {
@@ -45,7 +45,7 @@ export const NamesPeople = () => {
   const emptyNames = {
     male: [],
     female: [],
-    both: [],
+    all: [],
   };
 
   const [nameResult, setNameResult] = useState({ ...emptyNames });
@@ -122,9 +122,6 @@ export const NamesPeople = () => {
         <button tw="mb-5" css={buttonPrimary} onClick={handleGenerateNameClick}>
           {t('Generate names')}
         </button>
-        {i18n.language === 'en' && (
-          <div tw="text-xs mt-1">{t('Only Swedish names right now.')}</div>
-        )}
       </div>
       <div
         tw="grid gap-x-2"
@@ -135,18 +132,21 @@ export const NamesPeople = () => {
         }}
       >
         <div tw="text-center">
-          {nameResult.male.length !== 0 && (
-            <NameList heading="Male" names={nameResult.male}></NameList>
-          )}
-        </div>
-        <div tw="text-center">
           {nameResult.female.length !== 0 && (
-            <NameList heading="Female" names={nameResult.female}></NameList>
+            <NameList
+              heading={t('Female')}
+              names={nameResult.female}
+            ></NameList>
           )}
         </div>
         <div tw="text-center">
-          {nameResult.both.length !== 0 && (
-            <NameList heading="Both" names={nameResult.both}></NameList>
+          {nameResult.male.length !== 0 && (
+            <NameList heading={t('Male')} names={nameResult.male}></NameList>
+          )}
+        </div>
+        <div tw="text-center">
+          {nameResult.all.length !== 0 && (
+            <NameList heading={t('All')} names={nameResult.all}></NameList>
           )}
         </div>
       </div>

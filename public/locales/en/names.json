@@ -14,5 +14,16 @@
     "Inns": "Inns",
     "Plants": "Plants",
     "Villages": "Villages"
-  }
+  },
+  "People": "People",
+  "Inn": "Inn",
+  "Plant": "Plant",
+  "Village": "Village",
+  "Generate Inn names": "Generate Inn names",
+  "Generate Plant names": "Generate Plant names",
+  "Generate Village names": "Generate Village names",
+  "Female": "Female",
+  "Male": "Male",
+  "All": "All",
+  "Name Generators": "Name Generators"
 }

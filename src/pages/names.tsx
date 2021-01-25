@@ -21,7 +21,7 @@ export interface SegmentProp {
 }
 
 export const Names = () => {
-  const { t } = useTranslation('names');
+  const { t, i18n } = useTranslation('names');
 
   const nameGenerators: SegmentProp[] = [
     {
@@ -46,7 +46,6 @@ export const Names = () => {
     ...ng,
     label: t(`generators.${ng.label}`),
   }));
-  console.log(segments);
 
   const [active, setActive] = useState(0);
 
@@ -56,7 +55,10 @@ export const Names = () => {
 
   return (
     <>
-      <Heading>Name Generators</Heading>
+      <Heading>{t('Name Generators')}</Heading>
+      {i18n.language === 'en' && (
+        <div tw="text-gray-500 mb-2">{t('Only Swedish names right now.')}</div>
+      )}
       <div tw="mb-5">
         <SegmentedControl
           segments={segments}
@@ -75,7 +77,8 @@ export const Names = () => {
                 <div key="inn">
                   <GenericNameGenerator
                     json={innNamesSv}
-                    label={'Inn'}
+                    label={t('Inn')}
+                    buttonText={t(`Generate Inn names`)}
                   ></GenericNameGenerator>
                 </div>
               );
@@ -85,7 +88,8 @@ export const Names = () => {
                 <div key="village">
                   <GenericNameGenerator
                     json={villageNamesSv}
-                    label={'Village'}
+                    label={t('Village')}
+                    buttonText={t(`Generate Village names`)}
                   ></GenericNameGenerator>
                 </div>
               );
@@ -95,7 +99,8 @@ export const Names = () => {
                 <div key="plant">
                   <GenericNameGenerator
                     json={plantNamesSv}
-                    label={'Plant'}
+                    buttonText={t(`Generate Plant names`)}
+                    label={t('Plant')}
                   ></GenericNameGenerator>
                 </div>
               );

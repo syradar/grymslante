@@ -16,12 +16,14 @@ type NameGeneratorResource = {
 interface GenericNameGeneratorProps {
   json: NameGeneratorResource;
   label: string;
+  buttonText: string;
   maxNames?: number;
 }
 
 export const GenericNameGenerator = ({
   json,
   label,
+  buttonText,
   maxNames = 10,
 }: GenericNameGeneratorProps) => {
   const [nameResult, setNameResult] = useState<string[]>([]);
@@ -43,7 +45,7 @@ export const GenericNameGenerator = ({
           css={buttonPrimary}
           onClick={() => handleGenerateNameClick()}
         >
-          Generate {label} names
+          {buttonText}
         </button>
       </div>
       <div tw="text-center">

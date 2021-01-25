@@ -14,5 +14,16 @@
     "Inns": "Värdshus",
     "Plants": "Växter",
     "Villages": "Byar"
-  }
+  },
+  "People": "Folkslag",
+  "Inn": "Värdshus",
+  "Plant": "Växt",
+  "Village": "By",
+  "Generate Inn names": "Slump värdshusnamn",
+  "Generate Plant names": "Slump växtnamn",
+  "Generate Village names": "Slump bynamn",
+  "Female": "Kvinna",
+  "Male": "Man",
+  "All": "Alla",
+  "Name Generators": "Slumpa namn"
 }

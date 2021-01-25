@@ -54,7 +54,7 @@
         "wa",
         "wen"
       ],
-      "both": []
+      "all": []
     }
   },
   {
@@ -96,7 +96,7 @@
         "vida",
         "vigg"
       ],
-      "both": []
+      "all": []
     }
   },
   {
@@ -198,7 +198,7 @@
         "tilde",
         "winda"
       ],
-      "both": []
+      "all": []
     }
   },
   {
@@ -251,7 +251,7 @@
         "olvi",
         "sinka"
       ],
-      "both": []
+      "all": []
     }
   },
   {
@@ -290,7 +290,7 @@
         "zink"
       ],
       "female": [],
-      "both": []
+      "all": []
     }
   },
   {
@@ -325,14 +325,14 @@
     "suffix": {
       "male": [],
       "female": [],
-      "both": [
+      "all": [
         "lork",
         "lorsk",
         "lus",
         "mo",
         "must",
         "ogg",
-        "p�ls",
+        "päls",
         "ryt",
         "sno",
         "snor",
