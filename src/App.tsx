@@ -37,7 +37,7 @@ function App() {
               ></ThemeSwitcher>
             </div>
 
-            <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
+            <h1 className="bilibin" tw="px-3 text-4xl mb-3 text-red-500">
               {t('Grymslante')}
             </h1>
 
