@@ -22,7 +22,7 @@ i18nReact
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     supportedLngs: ['en', 'sv'],
     backend: {
       loadPath: 'grymslante/locales/{{lng}}/{{ns}}.json',
