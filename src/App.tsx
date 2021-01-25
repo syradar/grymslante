@@ -29,7 +29,7 @@ function App() {
       <div className={`app ${theme}`}>
         <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 light:text-gray-800 dark:bg-gray-900 dark:text-gray-300">
           <div tw="pb-4 flex-auto flex-shrink-0">
-            <div tw="pt-3 px-3 mb-3 flex justify-between">
+            <div tw="pt-3 px-3 mb-6 flex justify-between">
               <LanguageSwitcher></LanguageSwitcher>
               <ThemeSwitcher
                 toggleTheme={toggleTheme}
