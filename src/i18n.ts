@@ -3,11 +3,15 @@ import { initReactI18next } from 'react-i18next';
 
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { isDevelopment } from './utils/utils';
 // don't want to use this?
 // have a look at the Quick start guide
 // for passing in lng and translations on init
 
 const i18nReact = i18n;
+const loadPath = isDevelopment()
+  ? 'grymslante/locales/{{lng}}/{{ns}}.json'
+  : 'locales/{{lng}}/{{ns}}.json';
 
 i18nReact
   // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
@@ -25,7 +29,7 @@ i18nReact
     debug: false,
     supportedLngs: ['en', 'sv'],
     backend: {
-      loadPath: 'locales/{{lng}}/{{ns}}.json',
+      loadPath,
     },
 
     interpolation: {

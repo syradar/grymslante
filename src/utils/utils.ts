@@ -8,3 +8,5 @@ export const choice = (names: string[]): string => {
 };
 
 export const range = (n: number) => Array.from({ length: n }, (_, key) => key);
+
+export const isDevelopment = () => process.env.NODE_ENV === 'development';
