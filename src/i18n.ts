@@ -25,7 +25,7 @@ i18nReact
     debug: false,
     supportedLngs: ['en', 'sv'],
     backend: {
-      loadPath: 'grymslante/locales/{{lng}}/{{ns}}.json',
+      loadPath: 'locales/{{lng}}/{{ns}}.json',
     },
 
     interpolation: {
