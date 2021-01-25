@@ -1,0 +1,19 @@
+{
+  "Items": "Föremål",
+  "Search": "Sök",
+  "clothes": "Kläder",
+  "creature": "Djur",
+  "transport": "Transport",
+  "adventure kit": "Äventyrspaket",
+  "food": "Mat",
+  "service": "Tjänster",
+  "Header-Name": "Namn",
+  "Header-Special": "Special",
+  "Header-Weight": "Vikt",
+  "Header-TradeValue": "Handelsvärde",
+  "Header-Coins": "Mynt",
+  "Unit-TradeValue": "hv",
+  "Unit-GoldCoin": "gm",
+  "Unit-SilverCoin": "sm",
+  "Unit-CopperCoin": "km"
+}

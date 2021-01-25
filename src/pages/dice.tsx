@@ -15,6 +15,8 @@ import {
   validExplodeRange,
 } from '../utils/dice-roller';
 import { Heading } from '../components/heading';
+import { useTranslation } from 'react-i18next';
+import shortid from 'shortid';
 
 interface RollResult extends DiceResults {
   modifier: number;
@@ -26,7 +28,17 @@ interface RollHistoryItem {
 }
 
 export const Dice = () => {
-  const segments = ['d5', 'd10', 'd10 OR', 'd20'];
+  const { t } = useTranslation('dice');
+
+  const segments = [
+    { id: 'd5', label: 'd5' },
+    { id: 'd10', label: 'd10' },
+    { id: 'd10 OR', label: 'd10 OR' },
+    { id: 'd20', label: 'd20' },
+  ].map((d) => ({
+    ...d,
+    label: t(d.label),
+  }));
   const [active, setActive] = useState(0);
 
   const handleSegmentClick = (index: number) => {
@@ -70,10 +82,10 @@ export const Dice = () => {
   };
 
   const getDieToRoll = (): string => {
-    const die = `1${segments[active]}`;
+    const die = `1${segments[active].label}`;
 
     const or = `${
-      segments[active] === 'd10 OR'
+      segments[active].id === 'd10 OR'
         ? explodeOn === 10
           ? `(10)`
           : `(${explodeOn}–10)`
@@ -85,9 +97,9 @@ export const Dice = () => {
   };
 
   const rollDie = () => {
-    const dieFn = getDieType(segments[active]);
+    const dieFn = getDieType(segments[active].id);
     const result = {
-      ...(segments[active] === 'd10 OR' && validExplodeRange(explodeOn)
+      ...(segments[active].id === 'd10 OR' && validExplodeRange(explodeOn)
         ? dieFn(explodeOn)
         : dieFn()),
       modifier,
@@ -104,7 +116,7 @@ export const Dice = () => {
 
   return (
     <>
-      <Heading>Dice Roller</Heading>
+      <Heading>{t('Dice Roller')}</Heading>
       <div tw="grid lg:grid-flow-col" css={card}>
         <div tw="">
           <div tw="mb-3">
@@ -123,10 +135,10 @@ export const Dice = () => {
               value={modifier}
               onChange={(value) => handleModifierChange(value)}
             ></Stepper>
-            {segments[active] === 'd10 OR' && (
+            {segments[active].id === 'd10 OR' && (
               <Stepper
                 id={'explodingModifier'}
-                label={'Explode on'}
+                label={t('Explode on')}
                 min={2}
                 max={10}
                 value={explodeOn}
@@ -136,7 +148,7 @@ export const Dice = () => {
           </div>
           <div tw="flex justify-center mb-12">
             <button tw="" css={buttonPrimary} onClick={rollDie}>
-              Roll {getDieToRoll()}
+              {t('Roll')} {getDieToRoll()}
             </button>
           </div>
         </div>
@@ -154,7 +166,7 @@ export const Dice = () => {
             <>
               <div tw="text-9xl text-center">{diceResult.sum}</div>
               <div tw="text-xs dark:text-gray-200 light:text-gray-500 text-center">
-                {`Roll: ${diceResult.rolls.join(' + ')} ${
+                {`${t('Rolled dice')}: ${diceResult.rolls.join(' + ')} ${
                   modifier !== 0 ? displaySign(modifier) : ''
                 }`}
               </div>
@@ -163,15 +175,15 @@ export const Dice = () => {
         </div>
         <div>
           <div tw="flex items-center mb-1 justify-between">
-            <h3 css={[h3Style(), tw`mb-0`]}>Roll History</h3>
+            <h3 css={[h3Style(), tw`mb-0`]}>{t('Roll History')}</h3>
             <button css={[buttonSubtle()]} onClick={() => clearRollHistory()}>
-              Clear
+              {t('Clear')}
             </button>
           </div>
           <div tw="text-gray-500 dark:text-gray-300 p-3 rounded-lg bg-gray-100 dark:bg-gray-600 overflow-x-scroll h-96">
             {rollHistory &&
               rollHistory.map((rh) => (
-                <div tw="mb-2">
+                <div key={shortid.generate()} tw="mb-2">
                   <div>{rh.roll}</div>
                   <div tw="font-bold">{rh.result}</div>
                 </div>

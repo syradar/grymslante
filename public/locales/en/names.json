@@ -1,0 +1,29 @@
+{
+  "Generate names": "Generate names",
+  "people": {
+    "Mittlander": "Mittlander",
+    "Stormlander": "Stormlander",
+    "Virann": "Virann",
+    "Elf": "Elf",
+    "Dwarf": "Dwarf",
+    "Troll": "Troll"
+  },
+  "Only Swedish names right now": "Only Swedish names right now",
+  "generators": {
+    "People": "People",
+    "Inns": "Inns",
+    "Plants": "Plants",
+    "Villages": "Villages"
+  },
+  "People": "People",
+  "Inn": "Inn",
+  "Plant": "Plant",
+  "Village": "Village",
+  "Generate Inn names": "Generate Inn names",
+  "Generate Plant names": "Generate Plant names",
+  "Generate Village names": "Generate Village names",
+  "Female": "Female",
+  "Male": "Male",
+  "All": "All",
+  "Name Generators": "Name Generators"
+}

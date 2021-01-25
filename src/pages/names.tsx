@@ -8,38 +8,45 @@ import { card } from '../styles';
 import { Heading } from '../components/heading';
 import { NamesPeople } from '../components/names-people';
 import { GenericNameGenerator } from '../components/generic-name-generator';
-import innNames from '../data/inn-names.json';
-import villageNames from '../data/village-names.json';
-import plantNames from '../data/plant-names.json';
+import innNamesSv from '../data/inn-names.json';
+import villageNamesSv from '../data/village-names.json';
+import plantNamesSv from '../data/plant-names.json';
+import { useTranslation } from 'react-i18next';
 
-type NameGeneratorTypes = 'People' | 'Inns' | 'Villages' | 'Plants';
+//type NameGeneratorTypes = 'People' | 'Inns' | 'Villages' | 'Plants';
 
-interface NameGenerator {
-  label: NameGeneratorTypes;
-  component: React.FC;
+export interface SegmentProp {
+  id: string;
+  label: string;
 }
 
-const nameGenerators: NameGenerator[] = [
-  {
-    label: 'People',
-    component: NamesPeople,
-  },
-  {
-    label: 'Inns',
-    component: Heading,
-  },
-  {
-    label: 'Villages',
-    component: NamesPeople,
-  },
-  {
-    label: 'Plants',
-    component: NamesPeople,
-  },
-];
-
 export const Names = () => {
-  const segments: NameGeneratorTypes[] = nameGenerators.map((ng) => ng.label);
+  const { t, i18n } = useTranslation('names');
+
+  const nameGenerators: SegmentProp[] = [
+    {
+      id: 'People',
+      label: 'People',
+    },
+    {
+      id: 'Inns',
+      label: 'Inns',
+    },
+    {
+      id: 'Villages',
+      label: 'Villages',
+    },
+    {
+      id: 'Plants',
+      label: 'Plants',
+    },
+  ];
+
+  const segments: SegmentProp[] = nameGenerators.map((ng) => ({
+    ...ng,
+    label: t(`generators.${ng.label}`),
+  }));
+
   const [active, setActive] = useState(0);
 
   const handleSegmentClick = (index: number) => {
@@ -48,7 +55,10 @@ export const Names = () => {
 
   return (
     <>
-      <Heading>Name Generators</Heading>
+      <Heading>{t('Name Generators')}</Heading>
+      {i18n.language === 'en' && (
+        <div tw="text-gray-500 mb-2">{t('Only Swedish names right now.')}</div>
+      )}
       <div tw="mb-5">
         <SegmentedControl
           segments={segments}
@@ -66,8 +76,9 @@ export const Names = () => {
                 // TODO: Fix state
                 <div key="inn">
                   <GenericNameGenerator
-                    json={innNames}
-                    label={'Inn'}
+                    json={innNamesSv}
+                    label={t('Inn')}
+                    buttonText={t(`Generate Inn names`)}
                   ></GenericNameGenerator>
                 </div>
               );
@@ -76,8 +87,9 @@ export const Names = () => {
                 // TODO: Fix state
                 <div key="village">
                   <GenericNameGenerator
-                    json={villageNames}
-                    label={'Village'}
+                    json={villageNamesSv}
+                    label={t('Village')}
+                    buttonText={t(`Generate Village names`)}
                   ></GenericNameGenerator>
                 </div>
               );
@@ -86,8 +98,9 @@ export const Names = () => {
                 // TODO: Fix state
                 <div key="plant">
                   <GenericNameGenerator
-                    json={plantNames}
-                    label={'Plant'}
+                    json={plantNamesSv}
+                    buttonText={t(`Generate Plant names`)}
+                    label={t('Plant')}
                   ></GenericNameGenerator>
                 </div>
               );

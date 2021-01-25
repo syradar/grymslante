@@ -9,21 +9,43 @@ import { buttonPrimary } from '../styles';
 import peopleNames from '../data/people-names.json';
 import { NameList } from './name-list';
 import { capitalize, choice, range } from '../utils/utils';
+import { useTranslation } from 'react-i18next';
+import { SegmentProp } from '../pages/names';
 
 export const NamesPeople = () => {
-  const segments = [
-    'Mittlander',
-    'Stormlander',
-    'Virann',
-    'Elf',
-    'Dwarf',
-    'Troll',
-  ];
+  const { t } = useTranslation('names');
+
+  const segments: SegmentProp[] = [
+    {
+      id: 'Mittlander',
+      label: 'Mittlander',
+    },
+    {
+      id: 'Stormlander',
+      label: 'Stormlander',
+    },
+    {
+      id: 'Virann',
+      label: 'Virann',
+    },
+    {
+      id: 'Elf',
+      label: 'Elf',
+    },
+    {
+      id: 'Dwarf',
+      label: 'Dwarf',
+    },
+    {
+      id: 'Troll',
+      label: 'Troll',
+    },
+  ].map((seg) => ({ ...seg, label: t(`people.${seg.id}`) }));
 
   const emptyNames = {
     male: [],
     female: [],
-    both: [],
+    all: [],
   };
 
   const [nameResult, setNameResult] = useState({ ...emptyNames });
@@ -46,7 +68,7 @@ export const NamesPeople = () => {
   };
 
   const handleGenerateNameClick = () => {
-    const type = segments[active].toLowerCase();
+    const type = segments[active].id.toLowerCase();
 
     const names: Names | undefined = peopleNames.find(
       (pn) => pn.people === type
@@ -98,7 +120,7 @@ export const NamesPeople = () => {
       </div>
       <div tw="flex justify-center mb-12">
         <button tw="mb-5" css={buttonPrimary} onClick={handleGenerateNameClick}>
-          Generate names
+          {t('Generate names')}
         </button>
       </div>
       <div
@@ -110,18 +132,21 @@ export const NamesPeople = () => {
         }}
       >
         <div tw="text-center">
-          {nameResult.male.length !== 0 && (
-            <NameList heading="Male" names={nameResult.male}></NameList>
-          )}
-        </div>
-        <div tw="text-center">
           {nameResult.female.length !== 0 && (
-            <NameList heading="Female" names={nameResult.female}></NameList>
+            <NameList
+              heading={t('Female')}
+              names={nameResult.female}
+            ></NameList>
           )}
         </div>
         <div tw="text-center">
-          {nameResult.both.length !== 0 && (
-            <NameList heading="Both" names={nameResult.both}></NameList>
+          {nameResult.male.length !== 0 && (
+            <NameList heading={t('Male')} names={nameResult.male}></NameList>
+          )}
+        </div>
+        <div tw="text-center">
+          {nameResult.all.length !== 0 && (
+            <NameList heading={t('All')} names={nameResult.all}></NameList>
           )}
         </div>
       </div>

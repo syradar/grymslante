@@ -3,8 +3,8 @@
 import tw from 'twin.macro';
 import React from 'react';
 import './App.css';
-import Navbar from './components/navbar';
-import Footer from './components/footer';
+import { Navbar } from './components/navbar';
+import { Footer } from './components/footer';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Skills } from './pages/skills';
 import { Dice } from './pages/dice';
@@ -12,31 +12,33 @@ import { Names } from './pages/names';
 import { Changelog } from './pages/changelog';
 import { Items } from './pages/items';
 import { useDarkMode } from './services/dark-mode.service';
+import { useTranslation } from 'react-i18next';
+import { ThemeSwitcher } from './components/theme-switcher';
+import { LanguageSwitcher } from './components/language-switcher';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const { t } = useTranslation('core');
 
   if (!componentMounted) {
     return <div />;
   }
 
   return (
-    <Router basename="/grymslante">
+    <Router>
       <div className={`app ${theme}`}>
         <div tw="flex flex-col min-h-screen transition-colors light:bg-gray-100 light:text-gray-800 dark:bg-gray-900 dark:text-gray-300">
           <div tw="pb-4 flex-auto flex-shrink-0">
-            <div tw="p-1 px-3 mb-3  flex justify-end">
-              <button
-                tw="py-1 px-2 rounded bg-gray-300 dark:bg-gray-700 text-xs"
-                onClick={() => toggleTheme()}
-              >
-                {theme === 'dark'
-                  ? 'Back to the Light'
-                  : 'Embrace the Darkness'}
-              </button>
+            <div tw="pt-3 px-3 mb-6 flex justify-between">
+              <LanguageSwitcher></LanguageSwitcher>
+              <ThemeSwitcher
+                toggleTheme={toggleTheme}
+                theme={theme}
+              ></ThemeSwitcher>
             </div>
-            <h1 tw="px-3 text-2xl mb-3 font-bold text-gray-400 dark:text-gray-400 ">
-              Grymslante
+
+            <h1 className="bilibin" tw="px-3 text-4xl mb-3 text-red-500">
+              {t('Grymslante')}
             </h1>
 
             <Navbar />

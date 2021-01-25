@@ -13,6 +13,38 @@ export const Changelog = () => {
 
         <div css={card} tw="mb-8 p-8">
           <header>
+            <div tw="text-xs text-gray-400">2021-01-25</div>
+            <Heading h3={true}>I can speak in different languages</Heading>
+          </header>
+          <p tw="mb-2">
+            Trudvang has both Swedish and international players and game
+            masters. It made sense to provide them with the same functionality
+            in their own language. This meant researching and implementing a
+            translation library, I chose{' '}
+            <a
+              tw="text-red-500 hover:text-red-400 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+              href="https://react.i18next.com/"
+            >
+              react-i18next
+            </a>
+            . Then after a few hours of reading and debugging I got it working.
+            Now I just had to translate the whole app. It went rather smooth. I
+            had to change some data models to fit and create a language switcher
+            at the top. I still don't have resource files in English for names
+            and the items are still in English. But that is only a data
+            collection problem. Soon I will provide fully translated names and
+            items™️
+          </p>
+          <div tw="flex align-baseline text-2xl text-red-500">
+            <div>&mdash;</div>
+            <div className="bilibin">ZIOX</div>
+          </div>
+        </div>
+
+        <div css={card} tw="mb-8 p-8">
+          <header>
             <div tw="text-xs text-gray-400">2021-01-23</div>
             <Heading h3={true}>Mobile and Tablet view for Item List </Heading>
           </header>
