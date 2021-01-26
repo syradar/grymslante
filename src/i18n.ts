@@ -28,6 +28,7 @@ i18nReact
     fallbackLng: 'en',
     debug: false,
     supportedLngs: ['en', 'sv'],
+    ns: ['core', 'dice', 'items', 'names', 'skills'],
     backend: {
       loadPath,
     },
