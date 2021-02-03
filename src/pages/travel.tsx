@@ -88,7 +88,7 @@ export const Travel = () => {
 
   return (
     <>
-      <Heading>{t('Travel Time')}</Heading>
+      <Heading>{t('Header-TravelTime')}</Heading>
       <div css={card} tw="">
         <div tw="flex justify-between items-center">
           <Heading h3={true}>{t('Header-TransportSpeed')}</Heading>
