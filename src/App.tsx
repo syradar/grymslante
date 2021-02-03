@@ -15,6 +15,7 @@ import { useDarkMode } from './services/dark-mode.service';
 import { useTranslation } from 'react-i18next';
 import { ThemeSwitcher } from './components/theme-switcher';
 import { LanguageSwitcher } from './components/language-switcher';
+import { Travel } from './pages/travel';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -61,6 +62,9 @@ function App() {
                 </Route>
                 <Route path="/items">
                   <Items />
+                </Route>
+                <Route path="/travel">
+                  <Travel />
                 </Route>
               </Switch>
             </div>

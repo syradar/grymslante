@@ -33,11 +33,15 @@ export const Navbar = () => {
       label: 'Dice',
       path: '/dice',
     },
+    {
+      label: 'Travel',
+      path: '/travel',
+    },
   ];
 
   return (
     <nav tw="mb-12 bg-gray-300 dark:bg-gray-700 flex justify-center">
-      <ul tw="grid grid-flow-col gap-x-3 container">
+      <ul tw="grid grid-flow-col gap-x-3 container overflow-x-scroll">
         {pages.map((p) => (
           <li key={p.path}>
             <NavLink
