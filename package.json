@@ -63,7 +63,7 @@
     }
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
+    "@babel/cli": "^7.12.13",
     "babel-plugin-i18next-extract": "^0.8.2"
   }
 }
