@@ -1,0 +1,63 @@
+{
+  "Header-TransportSpeed": "Mode of transport",
+  "Header-TravelSpeed": "Travel speed",
+  "Header-Landscape": "Landscape",
+  "Header-Terrain": "Terrain",
+  "Header-Passability": "Passability",
+  "Header-Weather": "Weather conditions",
+  "Header-Distance": "Distance in kilometer",
+  "Label-Hour": "hour",
+  "Label-Hour_plural": "hours",
+  "Label-Day": "travel day",
+  "Label-Day_plural": "travel days",
+  "Clear": "Reset",
+  "TransportSpeed": {
+    "Foot": "On foot",
+    "Wagon": "Horse & Wagon",
+    "Horse": "Horse",
+    "Boat": "Boat"
+  },
+  "TravelSpeed": {
+    "WalkInShadows": "Walk in Shadows",
+    "Slow": "Slow",
+    "Normal": "Normal",
+    "Fast": "Fast",
+    "Quick": "Quick"
+  },
+  "Landscape": {
+    "Plains": "Plains",
+    "LightlyHilly": "Lightly hilly",
+    "Hilly": "Hilly",
+    "Mountainous": "Mountainous"
+  },
+  "Terrain": {
+    "Road": "Road",
+    "Grass": "Grass",
+    "GrassHigh": "High grass",
+    "Forest": "Forest",
+    "ForestThick": "Thick forrest",
+    "CityEmpty": "Desserted city",
+    "CityNormal": "City",
+    "CityCrowd": "Crowded city",
+    "VillageEmpty": "Desserted village",
+    "VillageNormal": "Village",
+    "VillageCrowd": "Crowded village"
+  },
+  "Passability": {
+    "Normal": "Normal",
+    "SomewhatDifficult": "Somewhat difficult",
+    "Difficult": "Difficult",
+    "VeryDifficult": "Very difficult",
+    "ExtremelyDifficult": "Extremely difficult"
+  },
+  "Weather": {
+    "Normal": "Normal",
+    "Rain": "Rain",
+    "HeavyRain": "Heavy rain",
+    "Snowing": "Snowing",
+    "Blizzard": "Blizzard",
+    "SnowLittle": "Little snow",
+    "Snow": "Snow",
+    "SnowMuch": "Much snow"
+  }
+}
