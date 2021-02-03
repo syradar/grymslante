@@ -1,0 +1,63 @@
+{
+  "Header-TransportSpeed": "Färdsätt",
+  "Header-TravelSpeed": "Hastighet",
+  "Header-Landscape": "Landskap",
+  "Header-Terrain": "Terräng",
+  "Header-Passability": "Framkomlighet",
+  "Header-Weather": "Väderförhållande",
+  "Header-Distance": "Sträcka i kilometer",
+  "Label-Hour": "timme",
+  "Label-Hour_plural": "timmar",
+  "Label-Day": "resdag",
+  "Label-Day_plural": "resdagar",
+  "Clear": "Rensa",
+  "TransportSpeed": {
+    "Foot": "Till fots",
+    "Wagon": "Häst och vagn",
+    "Horse": "Häst",
+    "Boat": "Båt"
+  },
+  "TravelSpeed": {
+    "WalkInShadows": "Lönndom",
+    "Slow": "Långsamt",
+    "Normal": "Normal",
+    "Fast": "Snabbt",
+    "Quick": "Kvickt"
+  },
+  "Landscape": {
+    "Plains": "Slätt",
+    "LightlyHilly": "Lätt kuperat",
+    "Hilly": "Kuperat",
+    "Mountainous": "Bergigt"
+  },
+  "Terrain": {
+    "Road": "Väg",
+    "Grass": "Gräs",
+    "GrassHigh": "Högt gräs",
+    "Forest": "Skog",
+    "ForestThick": "Tät skog",
+    "CityEmpty": "Folktom stad",
+    "CityNormal": "Stad",
+    "CityCrowd": "Folkmassa i stad",
+    "VillageEmpty": "Folktom by",
+    "VillageNormal": "By",
+    "VillageCrowd": "Folkmassa i by"
+  },
+  "Passability": {
+    "Normal": "Normal",
+    "SomewhatDifficult": "Något svår",
+    "Difficult": "Svår",
+    "VeryDifficult": "Väldigt svår",
+    "ExtremelyDifficult": "Extremt svår"
+  },
+  "Weather": {
+    "Normal": "Normalt",
+    "Rain": "Regn",
+    "HeavyRain": "Hällregn",
+    "Snowing": "Snöande",
+    "Blizzard": "Snöstorm",
+    "SnowLittle": "Lite snö",
+    "Snow": "Snö",
+    "SnowMuch": "Mycket snö"
+  }
+}
