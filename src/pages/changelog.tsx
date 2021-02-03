@@ -13,6 +13,27 @@ export const Changelog = () => {
 
         <div css={card} tw="mb-8 p-8">
           <header>
+            <div tw="text-xs text-gray-400">2021-02-03</div>
+            <Heading h3={true}>In a mystical land, far far away...</Heading>
+          </header>
+          <p tw="mb-2">
+            I have added the Travel time calculator under the Travel menu. I
+            could not find the actual travel time calculations in my books (is
+            it on the Game Master Screen?) So I took a look at my old source
+            code for the first iteration of my tool for Trudvang — from 2013 —
+            for the actual numbers. It took me a while to figure out how I
+            wanted to structure the data. I settled on an easy solution that
+            probably will need some cleanup in the future. Oh well. It's there
+            now, extreme values might produce hilarious results.
+          </p>
+          <div tw="flex align-baseline text-2xl text-red-500">
+            <div>&mdash;</div>
+            <div className="bilibin">ZIOX</div>
+          </div>
+        </div>
+
+        <div css={card} tw="mb-8 p-8">
+          <header>
             <div tw="text-xs text-gray-400">2021-01-25</div>
             <Heading h3={true}>I can speak in different languages</Heading>
           </header>
