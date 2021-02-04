@@ -9,7 +9,8 @@ import { Heading } from '../components/heading';
 import { NamesPeople } from '../components/names-people';
 import { GenericNameGenerator } from '../components/generic-name-generator';
 import innNamesSv from '../data/inn-names.json';
-import villageNamesSv from '../data/village-names.json';
+import villageNamesSv from '../data/village-names-sv.json';
+import villageNamesEn from '../data/village-names-en.json';
 import plantNamesSv from '../data/plant-names.json';
 import { useTranslation } from 'react-i18next';
 
@@ -53,12 +54,17 @@ export const Names = () => {
     setActive(index);
   };
 
+  const villageNames = i18n.language === 'sv' ? villageNamesSv : villageNamesEn;
+
   return (
     <>
       <Heading>{t('Name Generators')}</Heading>
-      {i18n.language === 'en' && (
-        <div tw="text-gray-500 mb-2">{t('Only Swedish names right now.')}</div>
-      )}
+      {i18n.language === 'en' &&
+        nameGenerators[active].label !== 'Villages' && (
+          <div tw="text-gray-500 mb-2">
+            {t('Only Swedish names right now.')}
+          </div>
+        )}
       <div tw="mb-5">
         <SegmentedControl
           segments={segments}
@@ -87,7 +93,7 @@ export const Names = () => {
                 // TODO: Fix state
                 <div key="village">
                   <GenericNameGenerator
-                    json={villageNamesSv}
+                    json={villageNames}
                     label={t('Village')}
                     buttonText={t(`Generate Village names`)}
                   ></GenericNameGenerator>
