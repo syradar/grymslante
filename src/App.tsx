@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { ThemeSwitcher } from './components/theme-switcher';
 import { LanguageSwitcher } from './components/language-switcher';
 import { Travel } from './pages/travel';
+import { Credits } from './pages/credits';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -65,6 +66,9 @@ function App() {
                 </Route>
                 <Route path="/travel">
                   <Travel />
+                </Route>
+                <Route path="/credits">
+                  <Credits />
                 </Route>
               </Switch>
             </div>
