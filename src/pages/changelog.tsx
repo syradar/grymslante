@@ -13,6 +13,28 @@ export const Changelog = () => {
 
         <div css={card} tw="mb-8 p-8">
           <header>
+            <div tw="text-xs text-gray-400">2021-02-04</div>
+            <Heading h3={true}>Villages in English</Heading>
+          </header>
+          <p tw="mb-2">
+            After scouring the Internet for words, abusing Google Translate,
+            looking all over Old Norse on Wiktionary and Thesaurus I have
+            translated the village names to English. Some words don't translate
+            well into English and sometime there are multiple meanings. I'm not
+            sure on how to handle the Swedish use of compound words in English
+            since the names of the villages are random, sometimes it's fine
+            without and sometimes not. I will go with not compounding the
+            English names for now, since it might be hard to distinguish where
+            the prefix and the suffix begins.
+          </p>
+          <div tw="flex align-baseline text-2xl text-red-500">
+            <div>&mdash;</div>
+            <div className="bilibin">ZIOX</div>
+          </div>
+        </div>
+
+        <div css={card} tw="mb-8 p-8">
+          <header>
             <div tw="text-xs text-gray-400">2021-02-03</div>
             <Heading h3={true}>In a mystical land, far far away...</Heading>
           </header>

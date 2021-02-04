@@ -7,6 +7,7 @@ import { buttonPrimary } from '../styles';
 
 import { NameList } from './name-list';
 import { capitalize, choice, range } from '../utils/utils';
+import { useTranslation } from 'react-i18next';
 
 type NameGeneratorResource = {
   prefix: string[];
@@ -27,13 +28,17 @@ export const GenericNameGenerator = ({
   maxNames = 10,
 }: GenericNameGeneratorProps) => {
   const [nameResult, setNameResult] = useState<string[]>([]);
+  const { i18n } = useTranslation();
 
   const names: NameGeneratorResource = json;
 
   const handleGenerateNameClick = () =>
     setNameResult(
       range(maxNames)
-        .map((_) => `${choice(names.prefix)}${choice(names.suffix)}`)
+        .map((_) => [choice(names.prefix), choice(names.suffix)])
+        .map((words) =>
+          i18n.language === 'en' ? words.join(' ') : words.join('')
+        )
         .map(capitalize)
     );
 
