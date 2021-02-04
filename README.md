@@ -8,7 +8,10 @@ Grymslante is a digital tool for Trudvang.
 - Dice Roller with Open Roll
 - Name generator for Stormlanders, Mittlanders, Viranni, Elves, Dwarves and Trolls.
 - Name generator for Inns, Plants and Villages.
-
+- Dark Mode :moon:
+- English and Swedish
+- Item List
+- Travel time calculator
 
 ## License
 
