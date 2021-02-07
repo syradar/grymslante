@@ -17,6 +17,7 @@ import { ThemeSwitcher } from './components/theme-switcher';
 import { LanguageSwitcher } from './components/language-switcher';
 import { Travel } from './pages/travel';
 import { Credits } from './pages/credits';
+import { Village } from './pages/village';
 
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -69,6 +70,9 @@ function App() {
                 </Route>
                 <Route path="/credits">
                   <Credits />
+                </Route>
+                <Route path="/village">
+                  <Village />
                 </Route>
               </Switch>
             </div>

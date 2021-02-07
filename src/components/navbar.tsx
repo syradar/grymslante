@@ -25,6 +25,14 @@ export const Navbar = () => {
       path: '/items',
     },
     {
+      label: 'Travel',
+      path: '/travel',
+    },
+    {
+      label: 'Village',
+      path: '/village',
+    },
+    {
       label: 'Skills',
       path: '/skills',
       chip: 'DODT',
@@ -32,10 +40,6 @@ export const Navbar = () => {
     {
       label: 'Dice',
       path: '/dice',
-    },
-    {
-      label: 'Travel',
-      path: '/travel',
     },
   ];
 

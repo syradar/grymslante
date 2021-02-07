@@ -8,11 +8,7 @@ import { buttonPrimary } from '../styles';
 import { NameList } from './name-list';
 import { capitalize, choice, range } from '../utils/utils';
 import { useTranslation } from 'react-i18next';
-
-type NameGeneratorResource = {
-  prefix: string[];
-  suffix: string[];
-};
+import { NameGeneratorResource } from '../utils/names/names.model';
 
 interface GenericNameGeneratorProps {
   json: NameGeneratorResource;
