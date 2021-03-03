@@ -3,11 +3,12 @@
 import tw from 'twin.macro';
 import { filterButtonStyle } from '../styles';
 import { useTranslation } from 'react-i18next';
+import { ValidLanguage } from '../models/language';
 
 export const LanguageSwitcher = () => {
   const { t, i18n } = useTranslation('core');
 
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = (lng: ValidLanguage) => {
     i18n.changeLanguage(lng);
   };
 

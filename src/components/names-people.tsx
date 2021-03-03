@@ -6,46 +6,50 @@ import { useState } from 'react';
 import { SegmentedControl } from '../components/segmented-control';
 import { buttonPrimary } from '../styles';
 
-import peopleNames from '../data/people-names.json';
 import { NameList } from './name-list';
-import { capitalize, choice, range } from '../utils/utils';
+import { range } from '../utils/utils';
 import { useTranslation } from 'react-i18next';
 import { SegmentProp } from '../pages/names';
+import { getPeopleNameGen } from '../services/name.services';
+import { ValidLanguage } from '../models/language';
+import { isPeople, People } from '../utils/people/people.model';
+import { isNotNullish } from '../utils/type-guards';
 
 export const NamesPeople = () => {
-  const { t } = useTranslation('names');
+  const { t, i18n } = useTranslation('names');
+  const nameGen = getPeopleNameGen(i18n.language as ValidLanguage);
 
   const segments: SegmentProp[] = [
     {
-      id: 'Mittlander',
+      id: People.Mittlander,
       label: 'Mittlander',
     },
     {
-      id: 'Stormlander',
+      id: People.Stormlander,
       label: 'Stormlander',
     },
     {
-      id: 'Virann',
+      id: People.Westmarkian,
       label: 'Virann',
     },
     {
-      id: 'Elf',
+      id: People.Elven,
       label: 'Elf',
     },
     {
-      id: 'Dwarf',
+      id: People.Dwarven,
       label: 'Dwarf',
     },
     {
-      id: 'Troll',
+      id: People.Troll,
       label: 'Troll',
     },
-  ].map((seg) => ({ ...seg, label: t(`people.${seg.id}`) }));
+  ].map((seg) => ({ ...seg, label: t(`people.${seg.label}`) }));
 
   const emptyNames = {
-    male: [],
-    female: [],
-    all: [],
+    male: [] as string[],
+    female: [] as string[],
+    all: [] as string[],
   };
 
   const [nameResult, setNameResult] = useState({ ...emptyNames });
@@ -57,45 +61,29 @@ export const NamesPeople = () => {
     setNameResult({ ...emptyNames });
   };
 
-  type Suffix = {
-    [type in string]?: string[];
-  };
-
-  type Names = {
-    people: string;
-    prefix: string[];
-    suffix: Suffix;
-  };
-
   const handleGenerateNameClick = () => {
-    const type = segments[active].id.toLowerCase();
+    const people = segments[active].id;
+    if (!isPeople(people)) return;
 
-    const names: Names | undefined = peopleNames.find(
-      (pn) => pn.people === type
-    );
+    const peopleNameGen = nameGen(people);
+    if (typeof peopleNameGen !== 'function') return;
 
-    if (names) {
-      const generatedNames = Object.keys(names.suffix)
-        .filter((k) => names.suffix[k]?.length !== 0)
-        .map((k) => {
-          const suffixes = names.suffix[k];
+    const generatedNames = {
+      male: range(10)
+        .map((_) => peopleNameGen('male'))
+        .filter(isNotNullish),
+      female: range(10)
+        .map((_) => peopleNameGen('female'))
+        .filter(isNotNullish),
+      all: range(10)
+        .map((_) => peopleNameGen('all'))
+        .filter(isNotNullish),
+    };
 
-          return {
-            [k]:
-              suffixes !== undefined
-                ? range(10)
-                    .map((_) => `${choice(names.prefix)}${choice(suffixes)}`)
-                    .map(capitalize)
-                : [''],
-          };
-        })
-        .reduce((acc, cur) => ({ ...acc, ...cur }), {});
-
-      setNameResult(() => ({
-        ...emptyNames,
-        ...generatedNames,
-      }));
-    }
+    setNameResult(() => ({
+      ...emptyNames,
+      ...generatedNames,
+    }));
   };
 
   return (

@@ -8,13 +8,8 @@ import { card } from '../styles';
 import { Heading } from '../components/heading';
 import { NamesPeople } from '../components/names-people';
 import { GenericNameGenerator } from '../components/generic-name-generator';
-import innNamesSv from '../data/inn-names.json';
-import villageNamesSv from '../data/village-names-sv.json';
-import villageNamesEn from '../data/village-names-en.json';
-import plantNamesSv from '../data/plant-names.json';
-import { useTranslation } from 'react-i18next';
 
-//type NameGeneratorTypes = 'People' | 'Inns' | 'Villages' | 'Plants';
+import { useTranslation } from 'react-i18next';
 
 export interface SegmentProp {
   id: string;
@@ -54,8 +49,6 @@ export const Names = () => {
     setActive(index);
   };
 
-  const villageNames = i18n.language === 'sv' ? villageNamesSv : villageNamesEn;
-
   return (
     <>
       <Heading>{t('Name Generators')}</Heading>
@@ -82,7 +75,7 @@ export const Names = () => {
                 // TODO: Fix state
                 <div key="inn">
                   <GenericNameGenerator
-                    json={innNamesSv}
+                    type={'Inns'}
                     label={t('Inn')}
                     buttonText={t(`Generate Inn names`)}
                   ></GenericNameGenerator>
@@ -93,7 +86,7 @@ export const Names = () => {
                 // TODO: Fix state
                 <div key="village">
                   <GenericNameGenerator
-                    json={villageNames}
+                    type={'Villages'}
                     label={t('Village')}
                     buttonText={t(`Generate Village names`)}
                   ></GenericNameGenerator>
@@ -104,7 +97,7 @@ export const Names = () => {
                 // TODO: Fix state
                 <div key="plant">
                   <GenericNameGenerator
-                    json={plantNamesSv}
+                    type={'Plants'}
                     buttonText={t(`Generate Plant names`)}
                     label={t('Plant')}
                   ></GenericNameGenerator>
